@@ -1,0 +1,54 @@
+@import '../../assets/styles/constants.scss';
+@import '../../assets/styles/fonts.scss';
+
+.public {
+  width: 648px;
+  height: 599px;
+  left: 356px;
+  top: 98px;
+  &__titule{
+    position: absolute;
+    width: 328px;
+    height: 42px;
+    left: 526px;
+    top: 131px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #000000;
+  }
+  &__input{
+    width: 313px;
+    height: 46px;
+    left: 539px;
+    top: 179px;
+
+    background: rgba(45, 58, 80, 0.9);
+    border-radius: 10px;
+    &__big{
+      height: 74px;
+    }
+  }
+  &__buttons{
+    display: flex;
+    flex-direction: column;
+    &__button{
+      position: absolute;
+      width: 162px;
+      height: 30px;
+      left: 614px;
+      top: 520px;
+  
+      background: rgba(204, 68, 84, 0.9);
+      border-radius: 10px;
+    }
+  }
+  
+}
+
+// @media only screen and (min-width: 851px) and (max-width: 1351px){
+// }
