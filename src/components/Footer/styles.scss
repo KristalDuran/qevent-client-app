@@ -1,0 +1,64 @@
+@import './../../assets/styles/fonts.scss';
+
+.footer{
+    position: relative;
+    width: 100%;
+    height: 78px;
+    left: 0px;
+    top: 180px;
+    background: #2E3C54;
+    display: flex;
+    flex-direction: column;
+    &__contact{
+      position: relative;
+      display: flex;
+      margin-left: auto;
+      margin-right: auto;
+      top: 10px;
+      &__phone{
+        width: 87px;
+        height: 14px;
+        left: 454px;
+        top: 1941px;
+
+        font-family: $robonto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+
+        color: #5DAAC1;
+    }
+    &__email{
+      width: 94px;
+        height: 14px;
+        left: 633px;
+        top: 1941px;
+
+        font-family: $robonto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+
+        color: #5DAAC1;
+    }
+    }
+    &__copyRight{
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: $robonto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 14px;
+
+      color: #5DAAC1;
+    }
+    &__logo{
+      position: absolute;
+      right: 10px;
+      top: 0px;
+    }
+}

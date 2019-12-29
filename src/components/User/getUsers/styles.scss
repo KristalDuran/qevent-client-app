@@ -1,0 +1,93 @@
+@import '../../../assets/styles/constants.scss';
+@import '../../../assets/styles/fonts.scss';
+
+.user {
+  position: absolute;
+  background:#D6DEE4;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+
+  &__info{
+    overflow: scroll;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 648px;
+  height: 599px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 130px;
+  
+  background: rgba(129, 184, 205, 0.5);
+  border-radius: 25px;
+
+  &__titule{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: $robonto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #2E3C54;
+  }
+  &__data{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 130px;
+    &__name{
+      position: relative;
+      margin-left: 50px;
+      font-family: $robonto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 25px;
+      line-height: 20px;
+  
+      color: #2E3C54;
+    }
+    &__rol{
+      position: relative;
+      margin-left: 60px;
+      font-family: $robonto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 20px;
+      top: -30px;
+      color: #2E3C54;
+    }
+    &__edit{
+      position: relative;
+      left: 540px;
+      width: 60px;
+      font-family: $robonto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 20px;
+      top: -115px;
+      color: #2E3C54;
+      &:hover{
+        font-size: 22px;
+        text-decoration: underline;
+      }
+    }
+    &__line{
+      border: 1px solid #CC4454;
+      top: -90px;
+      position: relative;
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  }
+}
+
+// @media only screen and (min-width: 851px) and (max-width: 1351px){
+// }
