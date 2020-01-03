@@ -9,6 +9,7 @@ import './styles.scss';
 
 import logo from './../../assets/img/logo.png';
 import name from './../../assets/img/name.png';
+import { Button } from 'semantic-ui-react';
 // import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
@@ -22,15 +23,15 @@ class Header extends React.Component {
   render() {
     return (
       <div className="header">
-        <img className="header__logo" src={logo}></img>
-        <img className="header__name" src={name}></img>
+        <Button href='/' className="header__logo"><img src={logo}></img></Button>
+        <Button href='/' className="header__name"><img src={name}></img></Button>
         {this.state.isLogin ? (
-          <p className='header__login'>Olvide contraseña</p>
+          <Button href="/" className='header__login'>Olvide contraseña</Button>
         ):(
           <div>
           <input className='header__input' placeholder='Buscar evento'></input>
-          <p className='header__login'>Iniciar Seción</p>
-          <p className='header__signin'>Registrarse</p>
+          <Button href="/login" className='header__login'>Iniciar Seción</Button>
+          <Button href="/addUser" className='header__signin'>Registrarse</Button>
           </div>
         )}
         <div className='header__line'></div>

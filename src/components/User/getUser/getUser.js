@@ -10,6 +10,7 @@ import { Button } from 'semantic-ui-react';
 // import { Link } from 'react-router-dom';
 import Header from '../../Header/index';
 import Footer from '../../Footer/index';
+import Menu from '../../Menu/index';
 
 class GetUser extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class GetUser extends React.Component {
     return (
       <div className="user">
         <Header/>
+        <Menu events={false} users={true}/>
         <div className="user__info">
           <p className='user__info__titule'>Datos usuario</p>
             <div className='user__info__data'>

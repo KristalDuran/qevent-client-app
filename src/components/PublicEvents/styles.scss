@@ -18,7 +18,8 @@
     display: flex;
     flex-direction: column;
     margin-left: auto;
-    right: 200px;
+    margin-right: auto;
+    left: 150px;
   
   &__titule{
     position: relative;
@@ -30,7 +31,7 @@
     font-size: 36px;
     line-height: 42px;
 
-    color: #000000;
+    color: #2D3A50;
   }
   &__input{
     position: relative;
@@ -77,8 +78,6 @@
       position: relative;
       width: 280px;
       height: 30px;
-      margin-left: auto;
-      margin-right: auto;
       margin-bottom: 15px;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       background: rgba(204, 68, 84, 0.9);
@@ -88,11 +87,13 @@
       font-weight: normal;
       font-size: 18px;
       line-height: 21px;
-
+      text-decoration: none;
+      text-align: center;
+      padding-top: 3px;
       color: #2D3A50;
       &:hover{
-        width: 290px;
         height: 40px;
+        padding-top: 8px;
       }
     }
   }

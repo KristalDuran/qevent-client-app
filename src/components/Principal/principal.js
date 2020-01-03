@@ -18,6 +18,7 @@ class Principal extends React.Component {
   render() {
     return (
       <div className="principal">
+      
       </div>
     )
   }

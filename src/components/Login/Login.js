@@ -28,7 +28,7 @@ class Login extends React.Component {
           <p className="login__info__titule">Login</p>
           <input className="login__info__inputName" placeholder='Usuario'></input>
           <input className="login__info__inputPassword" placeholder='Contraseña'></input>
-          <Button className="login__info__button">Ingresar</Button>
+          <Button href='/welcome' className="login__info__button">Ingresar</Button>
         </div>
         <Footer></Footer>
       </div>

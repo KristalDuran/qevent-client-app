@@ -90,11 +90,13 @@
       font-weight: normal;
       font-size: 25px;
       line-height: 29px;
-
+      text-align: center;
+      text-decoration: none;
+      padding-top: 5px;
       color: #2D3A50;
       &:hover{
-        width: 267px;
         height: 56px;
+        padding-top: 11px;
       }
     }
   }

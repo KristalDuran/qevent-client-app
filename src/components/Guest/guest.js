@@ -10,6 +10,7 @@ import { Button } from 'semantic-ui-react';
 // import { Link } from 'react-router-dom';
 import Header from '../Header/index';
 import Footer from '../Footer/index';
+import Menu from '../Menu/index';
 
 class Guest extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Guest extends React.Component {
     return (
       <div className="guest">
         <Header/>
+        <Menu events={true} users={false}/>
         <div className="guest__info">
           <p className='guest__info__titule'>Agregar Invitado</p>
           <input className="guest__info__input" placeholder='Nombre Completo'></input>
@@ -31,7 +33,7 @@ class Guest extends React.Component {
           <div className='guest__info__buttons'>
             <Button className='guest__info__buttons__button'>Imagen</Button>
             <Button className='guest__info__buttons__button'>Agregar</Button>
-            <Button className='guest__info__buttons__button'>Volver</Button>
+            <Button href='/addEvent' className='guest__info__buttons__button'>Volver</Button>
           </div>
         </div>
         <Footer/>

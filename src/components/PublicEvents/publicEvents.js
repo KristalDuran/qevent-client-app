@@ -7,10 +7,13 @@
 import React from 'react';
 import './styles.scss'
 import { Button } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import {
+  IonItem,
+} from '@ionic/react';
 
 import Header from '../Header/index';
 import Footer from '../Footer/index';
+import Menu from '../Menu/index';
 // import { Link } from 'react-router-dom';
 
 class PublicEvents extends React.Component {
@@ -27,6 +30,7 @@ class PublicEvents extends React.Component {
     return (
       <div className="public">
         <Header/>
+        <Menu events={true} users={false}/>
         <div className="public__info">
           <p className='public__info__titule'>Creación de eventos</p>
           <input className="public__info__input" placeholder='Nombre del Evento'></input>
@@ -35,12 +39,10 @@ class PublicEvents extends React.Component {
           <input className="public__info__input" placeholder='HH:MM'></input>
           <input className="public__info__input__big" placeholder='Descripción general'></input>
           <div className='public__info__buttons'>
-            <Button className='public__info__buttons__button'>Imagen</Button>
-            <Link to="/">
-            <Button className='public__info__buttons__button' >Incluir invitado</Button>
-            </Link>
-            <Button className='public__info__buttons__button'>Publicar evento</Button>
-            <Button className='public__info__buttons__button'>Cancelar</Button>
+            <Button href="/" className='public__info__buttons__button'>Imagen</Button>
+            <Button href="/addEvent/guest" className='public__info__buttons__button' >Incluir invitado</Button>
+            <Button href="/" className='public__info__buttons__button'>Publicar evento</Button>
+            <Button href="/" className='public__info__buttons__button'>Cancelar</Button>
           </div>
         </div>
         <Footer/>

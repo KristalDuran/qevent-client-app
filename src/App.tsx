@@ -4,7 +4,8 @@ import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { AppPage } from './declarations';
 
-import Home from './pages/Home';
+import Home from './components/HomePage';
+import Welcome from './components/WelcomePage';
 import List from './pages/List';
 import Header from './components/Header/index';
 import Login from './components/Login/index';
@@ -40,6 +41,7 @@ const App: React.FC = () => (
       <IonSplitPane contentId="main">
         <IonRouterOutlet id="main">
           <Route path="/addUser" component={AddUser} exact={true} />
+          <Route path="/welcome" component={Welcome} exact={true} />
           <Route path="/getUser" component={GetUser} exact={true} />
           <Route path="/getUsers" component={GetUsers} exact={true} />
           <Route path="/login" component={Login} exact={true} />
@@ -48,7 +50,7 @@ const App: React.FC = () => (
           <Route path="/home" component={Home} exact={true} />
           <Route path="/home/list" component={List} exact={true} />
           <Route path="/event" render={() => <Redirect to="/addEvent"/> } exact={true} />
-          <Route path="/" render={() => <Redirect to="/addEvent/guest"/> } exact={true} />
+          <Route path="/" render={() => <Redirect to="/home"/> } exact={true} />
         </IonRouterOutlet>
       </IonSplitPane>
     </IonReactRouter>

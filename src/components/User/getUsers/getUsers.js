@@ -9,6 +9,9 @@ import './styles.scss';
 // import { Link } from 'react-router-dom';
 import Header from '../../Header/index';
 import Footer from '../../Footer/index';
+import Menu from '../../Menu/index';
+import addImg from '../../../assets/img/add.png';
+import { Button } from 'semantic-ui-react';
 
 class GetUsers extends React.Component {
   constructor(props) {
@@ -20,16 +23,19 @@ class GetUsers extends React.Component {
 
   render() {
     return (
-      <div className="user">
+      <div className="users">
         <Header/>
-        <div className="user__info">
-          <p className='user__info__titule'>Usuarios actuales</p>
+        <Menu events={false} users={true}/>
+        <div className="users__info">
+          <p className='users__info__titule'>Usuarios actuales</p>
+          <Button href='/addUser' className='users__info__img'><img src={addImg}/>
+          </Button>
           {this.state.users.map( (items) => (
-            <div className='user__info__data'>
-              <p className='user__info__data__name'>{items.name}</p>
-              <p className='user__info__data__rol'>{items.rol}</p>
-              <p className='user__info__data__edit'>Editar</p>
-              <div className='user__info__data__line'></div>
+            <div className='users__info__data'>
+              <p className='users__info__data__name'>{items.name}</p>
+              <p className='users__info__data__rol'>{items.rol}</p>
+              <Button href='/addUser' className='users__info__data__edit'>Editar</Button>
+              <div className='users__info__data__line'></div>
             </div>
           ))}
         </div>
