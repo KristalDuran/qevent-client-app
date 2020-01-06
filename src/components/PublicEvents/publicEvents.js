@@ -29,8 +29,8 @@ class PublicEvents extends React.Component {
   render() {
     return (
       <div className="public">
-        <Header/>
         <Menu events={true} users={false}/>
+        <Header/>
         <div className="public__info">
           <p className='public__info__titule'>Creación de eventos</p>
           <input className="public__info__input" placeholder='Nombre del Evento'></input>

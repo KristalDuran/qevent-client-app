@@ -1,0 +1,217 @@
+@import './../../assets/styles/constants.scss';
+@import './../../assets/styles/fonts.scss';
+.eventSelected{
+  height: 100%;
+  overflow: scroll;
+  background: #E5E5E5;
+  color: #2D3A50;
+  &__info{
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    top: 84px;
+    font-family: $robonto;
+    font-style: normal;
+    font-weight: normal;
+    &__data{
+      position: relative;
+      margin-right: 50px;
+      background: #D6DEE4;
+      width: 100%;
+      height: 500px;
+      &__back{
+        position: relative;
+        top: 10px;
+        left: 30px;
+        height: 50px;
+        width: 40px;
+        background: #D6DEE4;
+      }
+      &__name{
+        margin-left: 200px;
+        font-size: 35px;
+        line-height: 41px;
+      }
+      &__date{
+        font-size: 20px;
+        line-height: 23px;
+        margin-left: 250px;
+      }
+      &__time{
+        font-size: 17px;
+        line-height: 23px;
+        margin-left: 330px;
+        margin-top: -15px;
+      }
+      &__address{
+        margin-top: 65px;
+        font-size: 20px;
+        line-height: 23px;
+        margin-left: 250px;
+      }
+      &__type{
+        margin-top: 65px;
+        font-size: 20px;
+        line-height: 23px;
+        margin-left: 250px;
+      }
+      &__img{
+        position: relative;
+        width: 590px;
+        height: 369px;
+        margin-top: -430px;
+        right: -50%;
+      }
+      &__search{
+        position: relative;
+        width: 45px;
+        height: 39px;
+        left: 580px;
+        top: -10px;
+        background: #D6DEE4;
+      }
+      &__like{
+        position: relative;
+        width: 34px;
+        height: 38px;
+        left: 600px;
+        top: -13px;
+        background: #D6DEE4;
+      }
+      &__button{
+        position: relative;
+        left: 620px;
+        top: -10px;
+        background: #D6DEE4;
+        width: 100px;
+        height: 36px;
+        background: rgba(204, 68, 84, 0.9);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        font-size: 25px;
+        line-height: 29px;
+        color: #2D3A50;
+        &:hover{
+          height: 46px;
+        }
+      }
+    }
+    &__description{
+      position: relative;
+      font-size: 28px;
+      line-height: 33px;
+      height: 500px;
+      text-align: center;
+      width: 80%;
+      margin: auto;
+      top:150px;
+    }
+    &__guest{
+      position: relative;
+      background: #D6DEE4;
+      display: flex;
+      flex-direction: column;
+      &__img{
+        position: relative;
+        width: 180px;
+        height: 153px;
+        margin-right: auto;
+        margin-left: auto;
+        top: 50px;
+      }
+      &__name{
+        font-size: 18px;
+        line-height: 21px;
+        margin-right: auto;
+        margin-left: auto;
+        top: 60px;
+        left: -100px;
+        position: relative;
+      }
+      &__address{
+        font-size: 18px;
+        line-height: 21px;
+        margin-right: auto;
+        margin-left: auto;
+        left: 100px;
+        position: relative;
+      }
+      &__email{
+        font-size: 18px;
+        line-height: 21px;
+        margin-right: auto;
+        margin-left: auto;
+        top: 8px;
+        left: -80px;
+        position: relative;
+      }
+      &__phone{
+        font-size: 18px;
+        line-height: 21px;
+        margin-right: auto;
+        margin-left: auto;
+        top: -50px;
+        left: 80px;
+        position: relative;
+      }
+      &__description{
+        font-size: 18px;
+        line-height: 21px;
+        margin-right: auto;
+        margin-left: auto;
+        width: 700px;
+        text-align: center;
+      }
+    }
+    &__inscription{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      &__title{
+        font-size: 30px;
+        line-height: 35px;
+        margin-left: 200px;
+      }
+      &__input{
+        position: relative;
+        width: 499px;
+        height: 46px;
+        background: rgba(45, 58, 80, 0.9);
+        border: rgba(45, 58, 80, 0.9);
+        border-radius: 10px;
+        margin-left: auto;
+        right: 25%;
+        margin-bottom: 30px;
+        padding-left: 15px;
+        font-size: 18px;
+        line-height: 21px;
+        color: #81B8CD;
+      }
+      &__button{
+        position: relative;
+        width: 257px;
+        height: 46px;
+        background: rgba(204, 68, 84, 0.9);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        margin-left: auto;
+        right: 25%;
+        margin-bottom: 50px;
+        font-size: 22px;
+        line-height: 26px;
+        color: #2D3A50;
+        text-align: center;
+        text-decoration: none;
+        &:hover{
+          height: 56px;
+        }
+      }
+      &__restriction{
+        
+      }
+    }
+  }
+}

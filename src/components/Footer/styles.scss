@@ -1,11 +1,12 @@
 @import './../../assets/styles/fonts.scss';
 
 .footer{
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 78px;
     left: 0px;
-    top: 180px;
+    bottom: 0px;
+    margin-bottom: 0px;
     background: #2E3C54;
     display: flex;
     flex-direction: column;

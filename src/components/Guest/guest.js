@@ -22,8 +22,8 @@ class Guest extends React.Component {
   render() {
     return (
       <div className="guest">
-        <Header/>
         <Menu events={true} users={false}/>
+        <Header/>
         <div className="guest__info">
           <p className='guest__info__titule'>Agregar Invitado</p>
           <input className="guest__info__input" placeholder='Nombre Completo'></input>

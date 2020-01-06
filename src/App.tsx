@@ -2,19 +2,17 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { AppPage } from './declarations';
 
-import Home from './components/HomePage';
+import About from './components/About';
+import Home from './components/Events';
 import Welcome from './components/WelcomePage';
 import List from './pages/List';
-import Header from './components/Header/index';
 import Login from './components/Login/index';
 import Guest from './components/Guest/index';
 import PublicEvents from './components/PublicEvents/index';
 import AddUser from './components/User/addUser/index';
 import GetUsers from './components/User/getUsers/index';
 import GetUser from './components/User/getUser/index';
-import { home, list } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -40,6 +38,7 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonSplitPane contentId="main">
         <IonRouterOutlet id="main">
+          <Route path="/about" component={About} exact={true} />
           <Route path="/addUser" component={AddUser} exact={true} />
           <Route path="/welcome" component={Welcome} exact={true} />
           <Route path="/getUser" component={GetUser} exact={true} />

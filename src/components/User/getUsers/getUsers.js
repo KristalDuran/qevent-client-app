@@ -10,22 +10,59 @@ import './styles.scss';
 import Header from '../../Header/index';
 import Footer from '../../Footer/index';
 import Menu from '../../Menu/index';
+import AddUser from '../addUser/index';
 import addImg from '../../../assets/img/add.png';
 import { Button } from 'semantic-ui-react';
+import { getUsers, getUser } from '../../../API/api-calls';
 
 class GetUsers extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      users:[{name:'Luis Rojas', rol:'Cliente'},{name:'Andrea Durán', rol:'Administrador'},{name:'Ronny Araya', rol:'Cliente'},{name:'Luis Rojas', rol:'Client'},{name:'Luis Rojas', rol:'Client'},{name:'Luis Rojas', rol:'Client'},{name:'Luis Rojas', rol:'Client'},{name:'Luis Rojas', rol:'Client'},{name:'Luis Rojas', rol:'Client'},{name:'Luis Rojas', rol:'Client'},{name:'Luis Rojas', rol:'Client'},{name:'Luis Rojas', rol:'Client'},{name:'Luis Rojas', rol:'Client'}]
+      users:[],
+      edit:false,
     }
+  }
+
+  componentDidMount() {
+    this.onGetUsers();
+  }
+
+  onGetUsers(){
+    getUsers(
+      response => {
+        if (response.data) {
+          this.setState({users:response.data});
+          console.log(response.data);
+        }
+      },
+      error => {
+        //TODO
+      }
+    )
+  }
+
+  onClick(userInfo){
+    getUser(userInfo.id,
+      response => {
+        if (response.data) {
+          this.setState({edit:true, userInfo:response.data});
+        }
+      },
+      error => {
+        //TODO
+      }
+    );
   }
 
   render() {
     return (
-      <div className="users">
-        <Header/>
+      this.state.edit ? (
+        <AddUser user={this.state.userInfo}></AddUser>
+      ) : (
+        <div className="users">
         <Menu events={false} users={true}/>
+        <Header/>
         <div className="users__info">
           <p className='users__info__titule'>Usuarios actuales</p>
           <Button href='/addUser' className='users__info__img'><img src={addImg}/>
@@ -34,13 +71,14 @@ class GetUsers extends React.Component {
             <div className='users__info__data'>
               <p className='users__info__data__name'>{items.name}</p>
               <p className='users__info__data__rol'>{items.rol}</p>
-              <Button href='/addUser' className='users__info__data__edit'>Editar</Button>
+              <Button className='users__info__data__edit' onClick={this.onClick.bind(this, items)}>Editar</Button>
               <div className='users__info__data__line'></div>
             </div>
           ))}
         </div>
         <Footer/>
-      </div>
+        </div>
+      )
     )
   }
 }

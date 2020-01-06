@@ -4,7 +4,7 @@
 .menu {
     font-size: 50px;
     position: absolute;
-    top: 85px;
+    top: 0px;
     left: 0;
     width: 300px;
     text-align: center;
@@ -20,21 +20,21 @@
     color: #2E3C54;
     &__profile{
       position: relative;
-      top: 60px;
+      top: 160px;
       &__img{
 
       }
     }
     &__line{
       position: relative;
-      top: 60px;
+      top: 160px;
       bottom: 20px;
       border: 1px solid #2E3C54;
       margin-bottom: 40px;
     }
     &__button{
       position: relative;
-      top: 40px;
+      top: 140px;
       background: rgba(129, 184, 205, 0.0);
       margin-top: 20px;
       margin-bottom: 20px;
@@ -46,17 +46,29 @@
       color: #2E3C54;
       height: 64px;
       text-decoration: none;
-    
+    }
+    &__about{
+      position: absolute;
+      bottom: 150px;
+      right: 40%;
+      background: rgba(129, 184, 205, 0.0);
+      color: #5DAAC1;
+      font-family: $robonto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px;
+      text-decoration-line: underline;
     }
     &__selectedUser{
-        top:212px;
+        top:312px;
         position: absolute;
         height: 63px;
         width: 100%;
         background: rgba(129, 184, 205, 0.9);
     }
     &__selectedEvent{
-        top:275px;
+        top:375px;
         position: absolute;
         height: 63px;
         width: 100%;

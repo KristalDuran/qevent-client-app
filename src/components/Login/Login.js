@@ -22,8 +22,8 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login">
-        <Header isLogin={true} ></Header>
         <img className="login__backgound" src={loginBackground}/>
+        <Header isLogin={true} ></Header>
         <div className="login__info">
           <p className="login__info__titule">Login</p>
           <input className="login__info__inputName" placeholder='Usuario'></input>

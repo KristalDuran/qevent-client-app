@@ -39,6 +39,7 @@ class Menu extends React.Component {
         <Button href='/addEvent' className="menu__button">Administrar evento</Button>
         <div className="menu__line"></div>
         <Button href='/' className="menu__button">Salir</Button>
+        <Button href='/about' className="menu__about">Información</Button>
       </div>
     )
   }

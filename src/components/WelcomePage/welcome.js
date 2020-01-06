@@ -10,9 +10,9 @@ import './styles.scss'
 import Header from '../Header/index';
 import Footer from '../Footer/index';
 import Menu from '../Menu/index';
-// import { Link } from 'react-router-dom';
 import logo from '../../assets/img/logoL.png';
 import name from '../../assets/img/nameL.png';
+
 class Welcome extends React.Component {
   constructor(props) {
     super(props)
@@ -27,8 +27,9 @@ class Welcome extends React.Component {
   render() {
     return (
       <div className="welcome">
-        <Header/>
+        
         <Menu events={false} users={false}/>
+        <Header/>
         <div className="welcome__info">
           <p className='welcome__info__title'>Bienvenido {this.state.name}, esperemos
           sea de gran ayuda la aplicacion!</p>
