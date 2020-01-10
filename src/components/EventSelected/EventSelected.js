@@ -36,6 +36,7 @@ class EventSelected extends React.Component {
   }
 
   onClickEvaluate(){
+    console.log('siiii')
     this.setState({evaluate:true})
     console.log('siiii')
   }
@@ -46,33 +47,38 @@ class EventSelected extends React.Component {
         <div className="eventSelected__info">
           <div className="eventSelected__info__data">
             <Button className="eventSelected__info__data__back" href='/'><img src={back}></img></Button>
-            <p className="eventSelected__info__data__name">{this.state.event.name}</p>
-            <p className="eventSelected__info__data__date">{this.state.event.date}</p>
-            <p className="eventSelected__info__data__time">{this.state.event.time}</p>
-            <p className="eventSelected__info__data__address">{this.state.event.place}</p>
-            <p className="eventSelected__info__data__type">{this.state.event.type}</p>
+            <p className="eventSelected__info__data__name">{this.state.event.Nombre}</p>
+            <p className="eventSelected__info__data__date">{this.state.event.Fecha}</p>
+            <p className="eventSelected__info__data__time">{this.state.event.Hora}</p>
+            <p className="eventSelected__info__data__address">{this.state.event.Ubicacion}</p>
+            <p className="eventSelected__info__data__type">{this.state.event.Tipo}</p>
             {this.state.event.img ? (
-              <img className="eventSelected__info__data__img" src={this.state.event.img}></img>
+              <img className="eventSelected__info__data__img" src={this.state.event.FuenteEvento}></img>
             ) : (
               <img className="eventSelected__info__data__img" src={iconDefault}></img>
             )}
-            <Button className="eventSelected__info__data__search"><img src={search}></img></Button>
-            <Button className="eventSelected__info__data__like"><img src={like}></img></Button>
-            <Button className="eventSelected__info__data__button" onClick={this.onClickEvaluate.bind(this)}>Evaluar</Button>
+            <div className="eventSelected__info__data__buttons">
+              <Button className="eventSelected__info__data__buttons__search"><img src={search}></img></Button>
+              <p className="eventSelected__info__data__buttons__number">{this.state.event.share}</p>
+              <Button className="eventSelected__info__data__buttons__like"><img src={like}></img></Button>
+              <p className="eventSelected__info__data__buttons__number">{this.state.event.likes}</p>
+              <Button className="eventSelected__info__data__buttons__button" onClick={this.onClickEvaluate.bind(this)}>Evaluar</Button>
+            </div>
           </div>
-          <p className="eventSelected__info__description">{this.state.event.description}</p>
-          {this.state.event.guest ? (
+          <p className="eventSelected__info__description">{this.state.event.DescInvit}</p>
+          {this.state.event.NombreInvit ? (
             <div className="eventSelected__info__guest">
+              <p className="eventSelected__info__guest__title">Expositor</p>
               {this.state.event.img ? (
-                <img className="eventSelected__info__guest__img" src={this.state.event.guest.img}></img>
+                <img className="eventSelected__info__guest__img" src={this.state.event.Fuenteinvit}></img>
               ) : (
                 <img className="eventSelected__info__guest__img" src={iconPerson}></img>
               )}
-              <p className="eventSelected__info__guest__name">{this.state.event.guest.name}</p>
-              <p className="eventSelected__info__guest__address">{this.state.event.guest.address}</p>
-              <p className="eventSelected__info__guest__email">{this.state.event.guest.email}</p>
-              <p className="eventSelected__info__guest__phone">{this.state.event.guest.phone}</p>
-              <p className="eventSelected__info__guest__description">{this.state.event.guest.description}</p>
+              <p className="eventSelected__info__guest__name">{this.state.event.NombreInvit}</p>
+              <p className="eventSelected__info__guest__address">{this.state.event.NombreInvit}</p>
+              <p className="eventSelected__info__guest__email">{this.state.event.Correoinvit}</p>
+              <p className="eventSelected__info__guest__phone">{this.state.event.Numeroinvit}</p>
+              <p className="eventSelected__info__guest__description">{this.state.event.Descinvit}</p>
             </div>
           ): (
             <div className="eventSelected__info__guest">

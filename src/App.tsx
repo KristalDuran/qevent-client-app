@@ -13,7 +13,7 @@ import PublicEvents from './components/PublicEvents/index';
 import AddUser from './components/User/addUser/index';
 import GetUsers from './components/User/getUsers/index';
 import GetUser from './components/User/getUser/index';
-
+import EditEvent from './components/EditEvent';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -46,6 +46,7 @@ const App: React.FC = () => (
           <Route path="/login" component={Login} exact={true} />
           <Route path="/addEvent/guest" component={Guest} exact={true}/>
           <Route path="/addEvent" component={PublicEvents}exact={true} />
+          <Route path="/events" component={EditEvent}exact={true} />
           <Route path="/home" component={Home} exact={true} />
           <Route path="/home/list" component={List} exact={true} />
           <Route path="/event" render={() => <Redirect to="/addEvent"/> } exact={true} />

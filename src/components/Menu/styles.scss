@@ -22,7 +22,7 @@
       position: relative;
       top: 160px;
       &__img{
-
+        position: relative;
       }
     }
     &__line{
@@ -53,7 +53,7 @@
       right: 40%;
       background: rgba(129, 184, 205, 0.0);
       color: #5DAAC1;
-      font-family: $robonto;
+      font-family: Roboto;
       font-style: normal;
       font-weight: bold;
       font-size: 20px;

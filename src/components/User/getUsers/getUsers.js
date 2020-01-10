@@ -32,8 +32,8 @@ class GetUsers extends React.Component {
     getUsers(
       response => {
         if (response.data) {
-          this.setState({users:response.data});
-          console.log(response.data);
+          console.log(response.data.content);
+          this.setState({users:response.data.content});
         }
       },
       error => {
@@ -43,10 +43,11 @@ class GetUsers extends React.Component {
   }
 
   onClick(userInfo){
-    getUser(userInfo.id,
+    console.log(userInfo.ID_usuario)
+    getUser(userInfo.ID_usuario,
       response => {
-        if (response.data) {
-          this.setState({edit:true, userInfo:response.data});
+        if (response.data.content) {
+          this.setState({edit:true, userInfo:response.data.content[0]});
         }
       },
       error => {
@@ -69,8 +70,8 @@ class GetUsers extends React.Component {
           </Button>
           {this.state.users.map( (items) => (
             <div className='users__info__data'>
-              <p className='users__info__data__name'>{items.name}</p>
-              <p className='users__info__data__rol'>{items.rol}</p>
+              <p className='users__info__data__name'>{items.Nombre}</p>
+              <p className='users__info__data__rol'>{items.Rol}</p>
               <Button className='users__info__data__edit' onClick={this.onClick.bind(this, items)}>Editar</Button>
               <div className='users__info__data__line'></div>
             </div>

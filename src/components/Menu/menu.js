@@ -36,7 +36,7 @@ class Menu extends React.Component {
         {this.state.events ?
           (<div className="menu__selectedEvent"></div>):
           (<div></div>)}
-        <Button href='/addEvent' className="menu__button">Administrar evento</Button>
+        <Button href='/events' className="menu__button">Administrar evento</Button>
         <div className="menu__line"></div>
         <Button href='/' className="menu__button">Salir</Button>
         <Button href='/about' className="menu__about">Información</Button>

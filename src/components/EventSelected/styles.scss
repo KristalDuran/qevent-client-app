@@ -24,11 +24,7 @@
       height: 500px;
       &__back{
         position: relative;
-        top: 10px;
-        left: 30px;
-        height: 50px;
-        width: 40px;
-        background: #D6DEE4;
+        margin-left: 30px;
       }
       &__name{
         margin-left: 200px;
@@ -63,39 +59,52 @@
         width: 590px;
         height: 369px;
         margin-top: -430px;
-        right: -50%;
+        right: -45%;
       }
-      &__search{
+      &__buttons{
         position: relative;
-        width: 45px;
-        height: 39px;
-        left: 580px;
-        top: -10px;
-        background: #D6DEE4;
-      }
-      &__like{
-        position: relative;
-        width: 34px;
-        height: 38px;
-        left: 600px;
-        top: -13px;
-        background: #D6DEE4;
-      }
-      &__button{
-        position: relative;
-        left: 620px;
-        top: -10px;
-        background: #D6DEE4;
-        width: 100px;
-        height: 36px;
-        background: rgba(204, 68, 84, 0.9);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 10px;
-        font-size: 25px;
-        line-height: 29px;
-        color: #2D3A50;
-        &:hover{
-          height: 46px;
+        display: flex;
+        flex-direction: row;
+        width: 600px;
+        left: 50%;
+        &__number{
+          position: relative;
+          size: 12px;
+          top: -28px;
+        }
+        &__search{
+          position: relative;
+          width: 45px;
+          height: 39px;
+          margin-left: 20px;
+          top: -23px;
+          background: #D6DEE4;
+        }
+        &__like{
+          position: relative;
+          width: 34px;
+          height: 38px;
+          margin-left: 50px;
+          // left: 38%;
+          top: -23px;
+          background: #D6DEE4;
+        }
+        &__button{
+          position: relative;
+          top: -30px;
+          background: #D6DEE4;
+          width: 100px;
+          height: 36px;
+          background: rgba(204, 68, 84, 0.9);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 10px;
+          font-size: 25px;
+          line-height: 29px;
+          color: #2D3A50;
+          margin-left: 180px;
+          &:hover{
+            height: 46px;
+          }
         }
       }
     }
@@ -114,13 +123,19 @@
       background: #D6DEE4;
       display: flex;
       flex-direction: column;
+      &__title{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 30px;
+        line-height: 35px;
+      }
       &__img{
         position: relative;
         width: 180px;
         height: 153px;
         margin-right: auto;
         margin-left: auto;
-        top: 50px;
       }
       &__name{
         font-size: 18px;
@@ -210,7 +225,7 @@
         }
       }
       &__restriction{
-        
+        position: relative;
       }
     }
   }
