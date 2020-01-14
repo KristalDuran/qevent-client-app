@@ -15,13 +15,12 @@
     position: relative;
     width: 511px;
     height: 562px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     display: flex;
     flex-direction: column;
     background: rgba(129, 184, 205, 0.6);
     border-radius: 20px;
-    top: 110px;
+    top: 170px;
     &__titule{
       position: relative;
       width: 99px;
@@ -71,7 +70,7 @@
       font-weight: normal;
       font-size: 20px;
       line-height: 23px;
-
+      margin-bottom: 0pxs;
       color: #81B8CD;
     }
     &__button{
@@ -80,7 +79,8 @@
       height: 46px;
       margin-left: auto;
       margin-right: auto;
-      top: 155px;
+      margin-top: 30px;
+      top: 100px;
       background: rgba(204, 68, 84, 0.9);
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-radius: 10px;

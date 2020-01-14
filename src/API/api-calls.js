@@ -1,11 +1,15 @@
 import apiRequest from './api-request';
 import {
   DELETE_USER,
+  DISLIKE,
   EDIT_USER,
   EVENTS,
   EVENT,
   NEW_USER,
   NEW_EVENT,
+  EVALUATE,
+  LIKE,
+  SHARE,
   USER,
   USERS
 } from '../utils/url.constants';
@@ -80,9 +84,57 @@ import {
     })
   }
 
+  export const likeEvent = (event, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${LIKE}?id=${event.id}&userId=${event.userId}`,
+      method: 'get',
+      data: {
+        event
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+
+  export const evaluateEvent = (evaluate, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${EVALUATE}?id=${evaluate.id}&number=${evaluate.number}&comment=${evaluate.comment}`,
+      method: 'get',
+      data: {
+        evaluate
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+
+  export const dislikeEvent = (event, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${DISLIKE}?id=${event.id}&userId=${event.userId}`,
+      method: 'get',
+      data: {
+        event
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+
+  export const shareEvent = (event, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${SHARE}?id=${event.id}`,
+      method: 'get',
+      data: {
+        event
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+
   export const editUser = (user, successCallback, errorCallback) => {
     apiRequest({
-      url: `${EDIT_USER}?id=${user.ID_usuario}&name=${user.Nombre}&email=${user.Correo}&rol=${user.Rol}`,
+      url: `${EDIT_USER}?id=${user.ID_usuario}&name=${user.Nombre}&email=${user.Correo}&rol=${user.Rol}&nameuser=${user.NombreUsuario}`,
       method: 'get',
       data: {
         user

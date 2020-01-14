@@ -30,14 +30,7 @@ class PublicEvents extends React.Component {
     this.setState({event});
     e.currentTarget.value = this.state.event;
   }
-  // ID_evento: 1
-  // Restricciones: "ninguna restriccion"
-  // Tipo: "Cultural"
-  // NombreInvit: "Carlos"
-  // DescInvit: "BLABLA"
-  // CorreoInvit: "invitado@gmail.com"
-  // NumeroInvit: "12345678"
-  // FuenteInvit: "www.invitado.com"
+
   onChangeAddress(e){
     const event = { ... this.state.event, Ubicacion: e.currentTarget.value};
     this.setState({event});
@@ -96,13 +89,21 @@ class PublicEvents extends React.Component {
   onClickAdd(){
     // this.setState({});
   }
+
+  onBack(){
+  }
+
   render() {
     return (
       <div className="public">
         <Menu events={true} users={false}/>
         <Header/>
         <div className="public__info">
-          <p className='public__info__titule'>Creación de eventos</p>
+          {this.state.event ? (
+            <p className='public__info__titule'>Editar eventos</p>
+          ):(
+            <p className='public__info__titule'>Creación de eventos</p>
+          )}
           <input className="public__info__input" placeholder='Nombre del Evento' value={this.state.event.NombreEvento || ''} onChange={this.onChangeName.bind(this)}></input>
           <input className="public__info__input" placeholder='Ubicación del Evento' value={this.state.event.Ubicacion || ''} onChange={this.onChangeAddress.bind(this)}></input>
           <input className="public__info__input" placeholder='Tipo' value={this.state.event.Tipo || ''} onChange={this.onChangeType.bind(this)}></input>
@@ -111,9 +112,13 @@ class PublicEvents extends React.Component {
           <input className="public__info__input__big" placeholder='Descripción general' value={this.state.event.DescEvento || ''} onChange={this.onChangeDescription.bind(this)}></input>
           <div className='public__info__buttons'>
             <Button href="/" className='public__info__buttons__button'>Imagen</Button>
-            <Button href="/addEvent/guest" className='public__info__buttons__button' >Incluir invitado</Button>
-            <Button href="/" className='public__info__buttons__button'>Publicar evento</Button>
-            <Button href="/" className='public__info__buttons__button'>Cancelar</Button>
+            {this.state.event ? (
+              <Button href="/addEvent/guest" className='public__info__buttons__button' >Editar invitados</Button>
+            ):(
+              <Button href="/addEvent/guest" className='public__info__buttons__button' >Incluir invitados</Button>
+            )}
+            <Button href="/events" className='public__info__buttons__button'>Publicar evento</Button>
+            <Button href="/events" className='public__info__buttons__button'>Cancelar</Button>
           </div>
         </div>
         <Footer/>

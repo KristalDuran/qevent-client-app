@@ -25,12 +25,7 @@ class Events extends React.Component {
       event:null
     }
   }
-  // name:'Evento Uno', place:'Zarcero, Alajuela', date:'29 Octubre, 2020', likes: '30', share:'3',time:'3:00 p.m', 
-  // description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat mas', 
-  // type:'Conferencia', restriccions: 'Restricciones: <br/> * Mayor de edad <br/> * Idioma españo', guest:{name:'Chris Duran', 
-  // img:'', address: 'Costa Rica', email:'chris@gmail.com', phone:'+506 786565',
-  // description:'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat mas',}},
-  
+
   onSelect(data){
     console.log(data);
     if (data !== null) {
@@ -38,7 +33,6 @@ class Events extends React.Component {
         data.ID_evento,
         response => {
           if (response.data) {
-            console.log(response.data.content)
             this.setState({event:response.data.content[0]});
           }
         },
@@ -71,7 +65,6 @@ componentDidMount(){
       this.state.event ? (
         <EventSelected event={this.state.event}></EventSelected>
       ) : (
-        
       <div className="events">
         <div className="events__info">
           <img className="events__info__background" src={background}/>

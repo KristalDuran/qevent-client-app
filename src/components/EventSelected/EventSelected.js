@@ -7,7 +7,7 @@ import React from 'react';
 import './styles.scss';
 
 import iconDefault from './../../assets/img/Event-icon.png';
-import search from './../../assets/img/search.png';
+import shares from './../../assets/img/search.png';
 import back from './../../assets/img/back.png';
 import likeRed from './../../assets/img/likeRed.png';
 import iconPerson from './../../assets/img/icon-person.png';
@@ -16,13 +16,15 @@ import Footer from '../Footer/index';
 import Header from '../Header/index';
 import Evaluate from '../Evaluate/index';
 import { Button } from 'semantic-ui-react';
+import { getEvent, likeEvent, dislikeEvent, shareEvent } from '../../API/api-calls';
 
 class EventSelected extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       event: this.props.event,
-      evaluate:false
+      evaluate:false,
+      like:false
     }
   }
 
@@ -35,10 +37,76 @@ class EventSelected extends React.Component {
 
   }
 
+  onClickLike(){
+    likeEvent({id:this.state.event.ID_evento,userId:2},
+      response => {
+        if (response) {
+          getEvent(
+            this.state.event.ID_evento,
+            responseGet => {
+              if (responseGet.data) {
+                this.setState({event:responseGet.data.content[0], like:true});
+              }
+            },
+            error => {
+              //TODO
+            }
+          );
+        }
+      },
+      error => {
+        //TODO
+      });
+    // this.setState({evaluate:true})
+  }
+
+  onClickDislike(){
+    dislikeEvent({id:this.state.event.ID_evento,userId:2},
+      response => {
+        if (response) {
+          getEvent(
+            this.state.event.ID_evento,
+            responseGet => {
+              if (responseGet.data) {
+                this.setState({event:responseGet.data.content[0], like:false});
+              }
+            },
+            error => {
+              //TODO
+            }
+          );
+        }
+      },
+      error => {
+        //TODO
+      });
+    // this.setState({evaluate:true})
+  }
+
+  onClickShares(){
+    shareEvent({id:this.state.event.ID_evento},
+      response => {
+        if (response) {
+          getEvent(
+            this.state.event.ID_evento,
+            responseGet => {
+              if (responseGet.data) {
+                this.setState({event:responseGet.data.content[0]});
+              }
+            },
+            error => {
+              //TODO
+            }
+          );
+        }
+      },
+      error => {
+        //TODO
+      });
+    // this.setState({evaluate:true})
+  }
   onClickEvaluate(){
-    console.log('siiii')
-    this.setState({evaluate:true})
-    console.log('siiii')
+    this.setState({evaluate:!this.state.evaluate})
   }
 
   render() {
@@ -58,14 +126,17 @@ class EventSelected extends React.Component {
               <img className="eventSelected__info__data__img" src={iconDefault}></img>
             )}
             <div className="eventSelected__info__data__buttons">
-              <Button className="eventSelected__info__data__buttons__search"><img src={search}></img></Button>
-              <p className="eventSelected__info__data__buttons__number">{this.state.event.share}</p>
-              <Button className="eventSelected__info__data__buttons__like"><img src={like}></img></Button>
+              <Button className="eventSelected__info__data__buttons__shares" onClick={this.onClickShares.bind(this)}><img src={shares}></img></Button>
+              <p className="eventSelected__info__data__buttons__number">{this.state.event.shares}</p>
+              {this.state.like ?
+              (<Button className="eventSelected__info__data__buttons__like" onClick={this.onClickDislike.bind(this)}><img src={likeRed}></img></Button>) :
+              (<Button className="eventSelected__info__data__buttons__like" onClick={this.onClickLike.bind(this)}><img src={like}></img></Button>)
+              }
               <p className="eventSelected__info__data__buttons__number">{this.state.event.likes}</p>
               <Button className="eventSelected__info__data__buttons__button" onClick={this.onClickEvaluate.bind(this)}>Evaluar</Button>
             </div>
           </div>
-          <p className="eventSelected__info__description">{this.state.event.DescInvit}</p>
+          <p className="eventSelected__info__description">{this.state.event.DescEvento}</p>
           {this.state.event.NombreInvit ? (
             <div className="eventSelected__info__guest">
               <p className="eventSelected__info__guest__title">Expositor</p>
@@ -95,7 +166,7 @@ class EventSelected extends React.Component {
     <p className="eventSelected__info__inscription__restriction">Restricciones: <br/><br/>{this.state.event.restriccions}</p>
           </div>
         </div>
-        {this.state.evaluate ? (<Evaluate></Evaluate>):<div></div>}
+        {this.state.evaluate ? (<Evaluate onClickEvaluate={this.onClickEvaluate.bind(this)} event={this.event}></Evaluate>):<div></div>}
         <Header></Header>
         <Footer></Footer>
       </div>

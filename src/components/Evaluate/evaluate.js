@@ -7,23 +7,39 @@
 import React from 'react';
 import './styles.scss'
 
-import Header from '../Header/index';
-import Footer from '../Footer/index';
-import Menu from '../Menu/index';
-import logo from '../../assets/img/logoL.png';
-import name from '../../assets/img/nameL.png';
 import { Button } from 'semantic-ui-react';
+import { evaluateEvent } from '../../API/api-calls';
 
-class Welcome extends React.Component {
+class Evaluate extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      event:this.props.event
+      event:this.props.event,
+      number:0,
+      comment:'',
     }
   }
 
   evaluate(){
+    evaluateEvent(
+      {id:this.state.ID_evento, number:this.state.number, comment:this.state.comment},
+      response => {
+        if (response) {
+          this.props.onClickEvaluate();
+        }
+      },
+      error => {
+        //TODO
+      }
+    );
+  }
 
+  onClick(number){
+    this.setState({number:number})
+  }
+
+  onChange(event){
+    this.setState({comment:event.target.value})
   }
 
   render() {
@@ -31,18 +47,18 @@ class Welcome extends React.Component {
       <div className="evaluate">
         <p className="evaluate__title">Evaluar el evento</p>
         <div className="evaluate__buttons">
-          <Button className="evaluate__buttons__button">1</Button>
-          <Button className="evaluate__buttons__button">2</Button>
-          <Button className="evaluate__buttons__button">3</Button>
-          <Button className="evaluate__buttons__button">4</Button>
-          <Button className="evaluate__buttons__button">5</Button>
+          <Button className="evaluate__buttons__button" onClick={this.onClick.bind(this, 1)}>1</Button>
+          <Button className="evaluate__buttons__button" onClick={this.onClick.bind(this, 2)}>2</Button>
+          <Button className="evaluate__buttons__button" onClick={this.onClick.bind(this, 3)}>3</Button>
+          <Button className="evaluate__buttons__button" onClick={this.onClick.bind(this, 4)}>4</Button>
+          <Button className="evaluate__buttons__button" onClick={this.onClick.bind(this, 5)}>5</Button>
         </div>
         <p className="evaluate__comment">Realizar un comentario</p>
-        <input className="evaluate__input" placeholder='Comentario'></input>
-        <Button className="evaluate__button">Enviar evaluación</Button>
+        <input className="evaluate__input" onChange={this.onChange.bind(this)} placeholder='Comentario'></input>
+        <Button className="evaluate__button" onClick={this.evaluate.bind(this)}>Enviar evaluación</Button>
       </div>
     )
   }
 }
 
-export default Welcome;
+export default Evaluate;

@@ -46,10 +46,14 @@ class Event extends React.Component {
 
   }
 
+  onBack(){
+    this.setState({edit:false});
+  }
+
   render() {
     return (
       this.state.edit ? (
-        <PublicEvents event={this.state.event}></PublicEvents>
+        <PublicEvents event={this.state.event} onBack={this.onBack.bind(this)}></PublicEvents>
       ) : (
         <div className="event">
           {this.state.event ? (

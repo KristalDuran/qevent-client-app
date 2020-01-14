@@ -26,15 +26,14 @@ class AddUser extends React.Component {
 
   componentDidMount(){
     if (this.state.user.Rol === 'Administrador') {
-      this.setState({adminRol:true})
+      this.setState({ adminRol:true})
     }else
     if (this.state.user.Rol === 'Cliente') {
-      this.setState({clientRol:true})
+      this.setState({ clientRol:true})
     }else
     if (this.state.user.Rol === 'Asistente') {
-      this.setState({asistentRol:true})
+      this.setState({ asistentRol:true})
     }
-    console.log('\n\n\n\n\n\nDatoooo\n\n\n\n\n\n ' + this.state.user.Rol)
   }
 
   onChangeName(e){
@@ -56,7 +55,20 @@ class AddUser extends React.Component {
   }
 
   onChangeRol(e){
-    const user = { ... this.state.user, Rol: e.currentTarget.value};
+    let rol = ''
+    if (e.target.selectedIndex === 0) {
+      rol = 'Administrador'
+      this.setState({ adminRol:true})
+    }
+    if (e.target.selectedIndex === 1) {
+      rol = 'Cliente'
+      this.setState({ clientRol:true})
+    }
+    if (e.target.selectedIndex === 2) {
+      rol = 'Asistente'
+      this.setState({ asistentRol:true})
+    }
+    const user = { ... this.state.user, Rol: rol};
     this.setState({user});
     e.currentTarget.value = this.state.user;
   }
@@ -72,13 +84,16 @@ class AddUser extends React.Component {
   }
 
   onSave(){
-    console.log(this.state.user.Contrasena === this.state.user.confirmPassword)
-    console.log(this.state.user.Contrasena, this.state.user.confirmPassword)
+    console.log('save')
     if (this.state.user.Contrasena === this.state.user.confirmPassword) {
+      console.log('igual')
       addUser(this.state.user,
         response => {
+          console.log(response)
           if (response.data) {
             this.setState({edit:false});
+            console.log('aqui')
+            this.props.onBack();
           }
         },
         error => {
@@ -93,6 +108,7 @@ class AddUser extends React.Component {
       response => {
         if (response.data) {
           this.setState({edit:false});
+          this.props.onBack();
         }
       },
       error => {
@@ -127,7 +143,7 @@ class AddUser extends React.Component {
           <input className="user__info__input" placeholder='Nombre Completo' value={this.state.user.Nombre || ''} onChange={this.onChangeName.bind(this)}></input>
           <input className="user__info__input" placeholder='Nombre de usuario' value={this.state.user.NombreUsuario || ''} onChange={this.onChangeUserName.bind(this)}></input>
           <input className="user__info__input" placeholder='Correo Electrónico' value={this.state.user.Correo || ''} onChange={this.onChangeEmail.bind(this)}></input>
-          <select className="user__info__input">
+          <select className="user__info__input" onChange={this.onChangeRol.bind(this)}>
             <option value="admin" selected={this.state.adminRol}>Administrador</option>
             <option value="client" selected={this.state.clientRol}>Cliente</option>
             <option value="asistent" selected={this.state.asistentRol}>Asistente</option>

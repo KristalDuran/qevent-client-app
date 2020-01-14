@@ -21,6 +21,7 @@ class GetUsers extends React.Component {
     this.state = {
       users:[],
       edit:false,
+      newUser:false,
     }
   }
 
@@ -56,17 +57,26 @@ class GetUsers extends React.Component {
     );
   }
 
+  onNewUser() {
+    this.setState({edit:false, newUser:true});
+  }
+
+  onBack(){
+    this.onGetUsers();
+    this.setState({edit:false, userInfo:{}});
+  }
+
   render() {
     return (
-      this.state.edit ? (
-        <AddUser user={this.state.userInfo}></AddUser>
+      this.state.edit || this.state.newUser ? (
+        <AddUser onBack={this.onBack.bind(this)} user={this.state.userInfo} newUser={this.state.newUser}></AddUser>
       ) : (
         <div className="users">
         <Menu events={false} users={true}/>
         <Header/>
         <div className="users__info">
           <p className='users__info__titule'>Usuarios actuales</p>
-          <Button href='/addUser' className='users__info__img'><img src={addImg}/>
+          <Button className='users__info__img' onClick={this.onNewUser.bind(this)}><img src={addImg}/>
           </Button>
           {this.state.users.map( (items) => (
             <div className='users__info__data'>
