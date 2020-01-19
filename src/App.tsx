@@ -1,7 +1,8 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import About from './components/About';
 import Home from './components/Events';
@@ -38,19 +39,25 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonSplitPane contentId="main">
         <IonRouterOutlet id="main">
-          <Route path="/about" component={About} exact={true} />
+          <Route path="/home" component={Home} exact={true} />
+          {/* <Route path="/event" render={() => <Redirect to="/addEvent"/> } exact={true} />
+          <Route path="/home/list" component={List} exact={true} />
+          
+          
           <Route path="/addUser" component={AddUser} exact={true} />
           <Route path="/welcome" component={Welcome} exact={true} />
           <Route path="/getUser" component={GetUser} exact={true} />
-          <Route path="/getUsers" component={GetUsers} exact={true} />
-          <Route path="/login" component={Login} exact={true} />
+          {/* <Route path="/events" component={GetUsers} exact={true} /> */}
+          {/* 
           <Route path="/addEvent/guest" component={Guest} exact={true}/>
-          <Route path="/addEvent" component={PublicEvents}exact={true} />
-          <Route path="/events" component={EditEvent}exact={true} />
-          <Route path="/home" component={Home} exact={true} />
-          <Route path="/home/list" component={List} exact={true} />
-          <Route path="/event" render={() => <Redirect to="/addEvent"/> } exact={true} />
+          <Route path="/addEvent" component={PublicEvents}exact={true} /> */}
+          {/* <Route path="/getUsers" component={GetUsers}exact={true} /> */}
           <Route path="/" render={() => <Redirect to="/home"/> } exact={true} />
+          <Route path="/about" component={About} exact={true} />
+          <Route path="/events" component={EditEvent}exact={true} />
+          <Route path="/getUsers" component={GetUsers} />
+          <Route path="/login" component={Login} exact={true} />
+          
         </IonRouterOutlet>
       </IonSplitPane>
     </IonReactRouter>

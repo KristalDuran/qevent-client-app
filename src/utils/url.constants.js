@@ -16,3 +16,5 @@ export const DELETE_EVENT = `${BASE_URL}/drops/deleteEvent`
 export const DISLIKE = `${BASE_URL}/updates/updateDislikeEvent`
 export const SHARE = `${BASE_URL}/puts/shareEvent`
 export const EVALUATE = `${BASE_URL}/puts/evaluateEvent`
+export const GUEST = `${BASE_URL}/gets/getInvitadosEvent`
+export const LOGIN = `${BASE_URL}/gets/getAcces`
