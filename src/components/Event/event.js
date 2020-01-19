@@ -18,6 +18,7 @@ class Event extends React.Component {
         event: this.props.event,
         admin: this.props.admin,
         edit:false,
+        user:this.props.user,
     }
   }
 
@@ -53,7 +54,7 @@ class Event extends React.Component {
   render() {
     return (
       this.state.edit ? (
-        <PublicEvents event={this.state.event} onBack={this.onBack.bind(this)}></PublicEvents>
+        <PublicEvents event={this.state.event} onBack={this.onBack.bind(this)} user={this.state.user}></PublicEvents>
       ) : (
         <div className="event">
           {this.state.event ? (

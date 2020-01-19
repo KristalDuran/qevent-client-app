@@ -23,7 +23,8 @@ class EditEvent extends React.Component {
     super(props)
     this.state = {
       events: [],
-      event:null
+      event:null,
+      user: this.props.location.state.user
     }
   }
   // name:'Evento Uno', place:'Zarcero, Alajuela', date:'29 Octubre, 2020', likes: '30', share:'3',time:'3:00 p.m', 
@@ -85,8 +86,8 @@ componentDidMount(){
           <PublicEvents event={this.state.eventEdit}></PublicEvents>
         ) : (
           <div className="eventsEdit">
-            <Menu events={true} users={false}/>
-            <Header/>
+            <Menu events={true} users={false} user={this.state.user}/>
+            <Header user={this.state.user}/>
             <div className="eventsEdit__info">
               <p className='eventsEdit__info__titule'>Eventos actuales</p>
               <Button href='/addEvent' className='eventsEdit__info__img'><img src={addImg}/>

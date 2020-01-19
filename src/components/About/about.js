@@ -15,6 +15,7 @@ class About extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      user:this.props.location.state.user
     }
   }
 
@@ -22,8 +23,8 @@ class About extends React.Component {
     return (
       <div className="about">
         
-        <Menu events={false} users={false}/>
-        <Header/>
+        <Menu events={false} users={false} user={this.state.user}/>
+        <Header user={this.state.user}/>
         <div className="about__info">
           <p className='about__info__title'>Información!</p>
         </div>

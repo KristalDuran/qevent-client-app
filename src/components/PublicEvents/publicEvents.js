@@ -17,7 +17,8 @@ class PublicEvents extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      event: this.props.event || {}
+      event: this.props.event || {},
+      user:this.props.user
     }
   }
 
@@ -97,7 +98,7 @@ class PublicEvents extends React.Component {
     return (
       <div className="public">
         <Menu events={true} users={false}/>
-        <Header/>
+        <Header user={this.state.user}/>
         <div className="public__info">
           {this.state.event ? (
             <p className='public__info__titule'>Editar eventos</p>

@@ -16,7 +16,8 @@ class Header extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isLogin:props.isLogin
+      isLogin:props.isLogin,
+      user:this.props.user,
     }
   }
 
@@ -28,11 +29,21 @@ class Header extends React.Component {
         {this.state.isLogin ? (
           <Button href="/" className='header__login'>Olvide contraseña</Button>
         ):(
-          <div>
-          <input className='header__input' placeholder='Buscar evento'></input>
-          <Button href="/login" className='header__login'>Iniciar Seción</Button>
-          <Button href="/addUser" className='header__signin'>Registrarse</Button>
-          </div>
+          this.state.user ? 
+          (
+            <div>
+              <input className='header__input' placeholder='Buscar evento'></input>
+              <p className='header__user'>{this.state.user.Nombre}</p>
+              <p className='header__role'>{this.state.user.Rol}</p>
+            </div>
+          ) :
+          (
+            <div>
+              <input className='header__input' placeholder='Buscar evento'></input>
+              <Button href="/login" className='header__login'>Iniciar Seción</Button>
+              <Button href="/addUser" className='header__signin'>Registrarse</Button>
+            </div>
+          )
         )}
         <div className='header__line'></div>
       </div>

@@ -22,6 +22,7 @@ class GetUsers extends React.Component {
       users:[],
       edit:false,
       newUser:false,
+      user:this.props.location.state.user
     }
   }
 
@@ -72,8 +73,8 @@ class GetUsers extends React.Component {
         <AddUser onBack={this.onBack.bind(this)} user={this.state.userInfo} newUser={this.state.newUser}></AddUser>
       ) : (
         <div className="users">
-        <Menu events={false} users={true}/>
-        <Header/>
+        <Menu events={false} users={true} user={this.state.user}/>
+        <Header user={this.state.user}/>
         <div className="users__info">
           <p className='users__info__titule'>Usuarios actuales</p>
           <Button className='users__info__img' onClick={this.onNewUser.bind(this)}><img src={addImg}/>

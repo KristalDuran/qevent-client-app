@@ -14,6 +14,30 @@
     // meter todo
     top: 20px;
   }
+  &__user{
+    position: absolute;
+    right: 165px;
+    top: 10px;
+
+    font-family: $robonto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #5DAAC1;
+  }
+  &__role{
+    position: absolute;
+    right: 65px;
+    top: 13px;
+
+    font-family: $robonto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 21px;
+    color: #5DAAC1;
+  }
   &__name{
     position: absolute;
     width: 149px;

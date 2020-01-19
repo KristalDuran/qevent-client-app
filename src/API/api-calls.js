@@ -11,7 +11,9 @@ import {
   LIKE,
   SHARE,
   USER,
-  USERS
+  USERS,
+  GUEST,
+  LOGIN
 } from '../utils/url.constants';
 
   export const addEvent = (event, successCallback, errorCallback) => {
@@ -156,3 +158,25 @@ import {
     })
   }
 
+  export const getGuest = (id, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${GUEST}?id=${id}`,
+      method: 'get',
+      data: {
+        id
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+
+  export const login = (nameuser, password, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${LOGIN}?nameuser=${nameuser}&password=${password}`,
+      method: 'get',
+      data: {
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }

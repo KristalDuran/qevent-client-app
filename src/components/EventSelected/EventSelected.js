@@ -16,7 +16,7 @@ import Footer from '../Footer/index';
 import Header from '../Header/index';
 import Evaluate from '../Evaluate/index';
 import { Button } from 'semantic-ui-react';
-import { getEvent, likeEvent, dislikeEvent, shareEvent } from '../../API/api-calls';
+import { getEvent, likeEvent, dislikeEvent, shareEvent, getGuest } from '../../API/api-calls';
 
 class EventSelected extends React.Component {
   constructor(props) {
@@ -24,12 +24,31 @@ class EventSelected extends React.Component {
     this.state = {
       event: this.props.event,
       evaluate:false,
-      like:false
+      like:false,
+      guests:null,
+      user:this.props.user,
     }
   }
 
-  onGetEvents(){
-    this.setState({events:[{name:'Evento Uno', place:'Zarcero, Alajuela', date:'29 Octubre, 2020', time:'3:00 p.m', type:'Conferencia'}]})
+  componentDidMount(){
+    this.onGetGuest();
+  }
+
+  onGetGuest(){
+    if(this.props.event){
+      getGuest(
+        this.props.event.ID_evento,
+        response => {
+          if (response) {
+            console.log(response.data.content)
+            this.setState({guests:response.data.content});
+          }
+        },
+        error => {
+          //TODO
+        }
+      );
+    }
   }
 
   setStateEvent(){
@@ -137,20 +156,22 @@ class EventSelected extends React.Component {
             </div>
           </div>
           <p className="eventSelected__info__description">{this.state.event.DescEvento}</p>
-          {this.state.event.NombreInvit ? (
+          {this.state.guests ? (
+            this.state.guests.map((guest) => (
             <div className="eventSelected__info__guest">
               <p className="eventSelected__info__guest__title">Expositor</p>
               {this.state.event.img ? (
-                <img className="eventSelected__info__guest__img" src={this.state.event.Fuenteinvit}></img>
+                <img className="eventSelected__info__guest__img" src={guest.Fuente}></img>
               ) : (
                 <img className="eventSelected__info__guest__img" src={iconPerson}></img>
               )}
-              <p className="eventSelected__info__guest__name">{this.state.event.NombreInvit}</p>
-              <p className="eventSelected__info__guest__address">{this.state.event.NombreInvit}</p>
-              <p className="eventSelected__info__guest__email">{this.state.event.Correoinvit}</p>
-              <p className="eventSelected__info__guest__phone">{this.state.event.Numeroinvit}</p>
-              <p className="eventSelected__info__guest__description">{this.state.event.Descinvit}</p>
+              <p className="eventSelected__info__guest__name">{guest.Nombre}</p>
+              <p className="eventSelected__info__guest__address">{guest.NombreInvit}</p>
+              <p className="eventSelected__info__guest__email">{guest.Correo}</p>
+              <p className="eventSelected__info__guest__phone">{guest.Numero}</p>
+              <p className="eventSelected__info__guest__description">{guest.Descripcion}</p>
             </div>
+            ))
           ): (
             <div className="eventSelected__info__guest">
               <p className="eventSelected__info__guest__description">Si desea conocer informacion sobre el invitado especial contactese al siguiente correo electrónico: info@qevent.com</p>
@@ -167,7 +188,7 @@ class EventSelected extends React.Component {
           </div>
         </div>
         {this.state.evaluate ? (<Evaluate onClickEvaluate={this.onClickEvaluate.bind(this)} event={this.event}></Evaluate>):<div></div>}
-        <Header></Header>
+        <Header user={this.state.user}></Header>
         <Footer></Footer>
       </div>
     )

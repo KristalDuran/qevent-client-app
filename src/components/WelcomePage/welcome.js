@@ -17,7 +17,7 @@ class Welcome extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name:'Kristal Durán'
+      user:this.props.user
     }
   }
 
@@ -27,11 +27,10 @@ class Welcome extends React.Component {
   render() {
     return (
       <div className="welcome">
-        
-        <Menu events={false} users={false}/>
-        <Header/>
+        <Menu events={false} users={false} user={this.state.user}/>
+        <Header user={this.state.user}/>
         <div className="welcome__info">
-          <p className='welcome__info__title'>Bienvenido {this.state.name}, esperemos
+          <p className='welcome__info__title'>Bienvenido {this.state.user.Nombre}, esperemos
           sea de gran ayuda la aplicacion!</p>
           <img className="welcome__info__logo" src={logo}/>
           <img className="welcome__info__name" src={name}/>

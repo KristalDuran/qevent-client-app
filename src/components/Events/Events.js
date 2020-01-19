@@ -22,7 +22,8 @@ class Events extends React.Component {
       events: [],
       eventEdit: null,
       edit:false,
-      event:null
+      event:null,
+      user:this.props.user || this.props.location.state.user
     }
   }
 
@@ -63,7 +64,7 @@ componentDidMount(){
   render() {
     return (
       this.state.event ? (
-        <EventSelected event={this.state.event}></EventSelected>
+        <EventSelected event={this.state.event} user={this.state.user}></EventSelected>
       ) : (
       <div className="events">
         <div className="events__info">
@@ -77,11 +78,11 @@ componentDidMount(){
           <p className="events__info__titule">Eventos</p>
           <div className="events__info__eventsList">
             {this.state.events.map((event) => (
-              <Event event={event} onSelect={this.onSelect.bind(this)} admin={false}></Event>
+              <Event event={event} onSelect={this.onSelect.bind(this)} admin={false} user={this.state.user}></Event>
             ))}
           </div>
         </div>
-        <Header></Header>
+        <Header user={this.state.user}></Header>
         <Footer></Footer>
       </div>
         
