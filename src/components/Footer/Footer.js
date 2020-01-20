@@ -24,7 +24,7 @@ class Footer extends React.Component {
           <p className="footer__contact__email">info@qevent.com</p>
         </div>
         <p className="footer__copyRight">Todos los derechos reservados © 2019</p>
-        <img className="footer__logo" src={logo}></img>
+        <img className="footer__logo" alt='' src={logo}></img>
       </div>
     )
   }

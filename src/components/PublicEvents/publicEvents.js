@@ -11,14 +11,16 @@ import { Button } from 'semantic-ui-react';
 import Header from '../Header/index';
 import Footer from '../Footer/index';
 import Menu from '../Menu/index';
-import {addEvent} from '../../API/api-calls';
+import {addEvent, editEvent} from '../../API/api-calls';
+import { Link } from 'react-router-dom';
 
 class PublicEvents extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       event: this.props.event || {},
-      user:this.props.user
+      user:this.props.user,
+      edit: this.props.event,
     }
   }
 
@@ -27,49 +29,49 @@ class PublicEvents extends React.Component {
   }
 
   onChangeName(e){
-    const event = { ... this.state.event, NombreEvento: e.currentTarget.value};
+    const event = { ...this.state.event, NombreEvento: e.currentTarget.value };
     this.setState({event});
     e.currentTarget.value = this.state.event;
   }
 
   onChangeAddress(e){
-    const event = { ... this.state.event, Ubicacion: e.currentTarget.value};
+    const event = { ...this.state.event, Ubicacion: e.currentTarget.value };
     this.setState({event});
     e.currentTarget.value = this.state.event;
   }
 
   onChangeDate(e){
-    const event = { ... this.state.event, Fecha: e.currentTarget.value};
+    const event = { ...this.state.event, Fecha: e.currentTarget.value };
     this.setState({event});
     e.currentTarget.value = this.state.event;
   }
 
   onChangeTime(e){
-    const event = { ... this.state.event, Hora: e.currentTarget.value};
+    const event = { ...this.state.event, Hora: e.currentTarget.value };
     this.setState({event});
     e.currentTarget.value = this.state.event;
   }
 
   onChangeDescription(e){
-    const event = { ... this.state.event, DescEvento: e.currentTarget.value};
+    const event = { ...this.state.event, DescEvento: e.currentTarget.value };
     this.setState({event});
     e.currentTarget.value = this.state.event;
   }
 
   onChangeType(e){
-    const event = { ... this.state.event, Tipo: e.currentTarget.value};
+    const event = { ...this.state.event, Tipo: e.currentTarget.value };
     this.setState({event});
     e.currentTarget.value = this.state.event;
   }
 
   onChangeGuests(e){
-    const event = { ... this.state.event, Guests: e.currentTarget.value};
+    const event = { ...this.state.event, Guests: e.currentTarget.value };
     this.setState({event});
     e.currentTarget.value = this.state.event;
   }
 
   onChangeImg(e){
-    const event = { ... this.state.event, FuenteEvento: e.currentTarget.value};
+    const event = { ...this.state.event, FuenteEvento: e.currentTarget.value };
     this.setState({event});
     e.currentTarget.value = this.state.event;
   }
@@ -87,20 +89,26 @@ class PublicEvents extends React.Component {
     );
   }
 
-  onClickAdd(){
-    // this.setState({});
-  }
-
-  onBack(){
+  onEditEvent(){
+    editEvent(this.state.event,
+      response => {
+        if (response.data) {
+          this.setState({edit:false});
+        }
+      },
+      error => {
+        //TODO
+      }
+    );
   }
 
   render() {
     return (
       <div className="public">
-        <Menu events={true} users={false}/>
+        <Menu events={true} users={false} user={this.state.user}/>
         <Header user={this.state.user}/>
         <div className="public__info">
-          {this.state.event ? (
+          {this.state.edit ? (
             <p className='public__info__titule'>Editar eventos</p>
           ):(
             <p className='public__info__titule'>Creación de eventos</p>
@@ -111,16 +119,25 @@ class PublicEvents extends React.Component {
           <input className="public__info__input" placeholder='DD/MM/YYY' value={this.state.event.Fecha || ''} onChange={this.onChangeDate.bind(this)}></input>
           <input className="public__info__input" placeholder='HH:MM' value={this.state.event.Hora || ''} onChange={this.onChangeTime.bind(this)}></input>
           <input className="public__info__input__big" placeholder='Descripción general' value={this.state.event.DescEvento || ''} onChange={this.onChangeDescription.bind(this)}></input>
-          <div className='public__info__buttons'>
-            <Button href="/" className='public__info__buttons__button'>Imagen</Button>
-            {this.state.event ? (
-              <Button href="/addEvent/guest" className='public__info__buttons__button' >Editar invitados</Button>
+            {this.state.edit ? (
+              <div className='public__info__buttons'>
+                <Button href="/" className='public__info__buttons__button'>Imagen</Button>
+                <Button href="/addEvent/guest" className='public__info__buttons__button' >Editar invitados</Button>
+                <Button href="/events" className='public__info__buttons__button' onClick={this.onEditEvent.bind(this)}>Actualizar evento</Button>
+                <Button href="/events" className='public__info__buttons__button'>Cancelar</Button>
+              </div>
             ):(
-              <Button href="/addEvent/guest" className='public__info__buttons__button' >Incluir invitados</Button>
+              <div className='public__info__buttons'>
+                <Button href="/" className='public__info__buttons__button'>Imagen</Button>
+                <Link className='public__link' to={{
+                  pathname: "/addEvent/guest",
+                  state: { user: this.state.user}}}>
+                <Button href="/addEvent/guest" className='public__text' >Incluir invitados</Button>
+                </Link>
+                <Button href="/events" className='public__info__buttons__button' onClick={this.onAddEvent.bind(this)}>Publicar evento</Button>
+                <Button href="/events" className='public__info__buttons__button'>Cancelar</Button>
+              </div>
             )}
-            <Button href="/events" className='public__info__buttons__button'>Publicar evento</Button>
-            <Button href="/events" className='public__info__buttons__button'>Cancelar</Button>
-          </div>
         </div>
         <Footer/>
       </div>

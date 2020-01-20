@@ -8,7 +8,6 @@ import React from 'react';
 import './styles.scss';
 import { Button } from 'semantic-ui-react';
 
-import About from '../About/about';
 import profile_img from '../../assets/img/prof_default.png';
 import { Link } from 'react-router-dom';
 class Menu extends React.Component {
@@ -38,7 +37,7 @@ class Menu extends React.Component {
         {this.state.users ?
           (<div className="menu__selectedUser"></div>):
           (<div></div>)}
-        <Link to={{
+        <Link className="menu__link" to={{
             pathname: "/getUsers",
             state: { user: this.state.user}
           }}>
@@ -49,7 +48,7 @@ class Menu extends React.Component {
         {this.state.events ?
           (<div className="menu__selectedEvent"></div>):
           (<div></div>)}
-        <Link to={{
+        <Link className="menu__link" to={{
             pathname: "/events",
             state: { user: this.state.user}
           }}>
@@ -57,7 +56,7 @@ class Menu extends React.Component {
         </Link>
         <div className="menu__line"></div>
         <Button href='/' className="menu__button">Salir</Button>
-        <Link to={{
+        <Link className="menu__link" to={{
             pathname: "/about",
             state: { user: this.state.user}
           }}>

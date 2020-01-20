@@ -24,8 +24,8 @@ class Header extends React.Component {
   render() {
     return (
       <div className="header">
-        <Button href='/' className="header__logo"><img src={logo}></img></Button>
-        <Button href='/' className="header__name"><img src={name}></img></Button>
+        <Button href='/' className="header__logo"><img alt='Qevent' src={logo}></img></Button>
+        <Button href='/' className="header__name"><img alt='Qevent' src={name}></img></Button>
         {this.state.isLogin ? (
           <Button href="/" className='header__login'>Olvide contraseña</Button>
         ):(

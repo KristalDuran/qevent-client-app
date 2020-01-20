@@ -32,8 +32,8 @@ class Welcome extends React.Component {
         <div className="welcome__info">
           <p className='welcome__info__title'>Bienvenido {this.state.user.Nombre}, esperemos
           sea de gran ayuda la aplicacion!</p>
-          <img className="welcome__info__logo" src={logo}/>
-          <img className="welcome__info__name" src={name}/>
+          <img className="welcome__info__logo" alt='' src={logo}/>
+          <img className="welcome__info__name" alt='' src={name}/>
         </div>
         <Footer/>
       </div>

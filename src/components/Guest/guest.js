@@ -16,14 +16,15 @@ class Guest extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      user:this.props.location.state.user
     }
   }
 
   render() {
     return (
       <div className="guest">
-        <Menu events={true} users={false}/>
-        <Header/>
+        <Menu events={true} users={false} user={this.state.user}/>
+        <Header user={this.state.user}/>
         <div className="guest__info">
           <p className='guest__info__titule'>Agregar Invitado</p>
           <input className="guest__info__input" placeholder='Nombre Completo'></input>

@@ -56,6 +56,9 @@ class EditEvent extends React.Component {
 
 componentDidMount(){
   this.onGetEvents();
+  if (this.state.user.Rol === 'Administrador') {
+    this.setState({canEdit:true});
+  }
 }
 
   onGetEvents(){
@@ -77,24 +80,31 @@ componentDidMount(){
     this.setState({edit:true, eventEdit: data})
   }
 
+  onClick(){
+    this.setState({edit:true})
+  }
+
   render() {
     return (
       this.state.event ? (
         <EventSelected event={this.state.event}></EventSelected>
       ) : (
         this.state.edit ? (
-          <PublicEvents event={this.state.eventEdit}></PublicEvents>
+          <PublicEvents event={this.state.eventEdit} user={this.state.user}></PublicEvents>
         ) : (
           <div className="eventsEdit">
             <Menu events={true} users={false} user={this.state.user}/>
             <Header user={this.state.user}/>
             <div className="eventsEdit__info">
               <p className='eventsEdit__info__titule'>Eventos actuales</p>
-              <Button href='/addEvent' className='eventsEdit__info__img'><img src={addImg}/>
-              </Button>
+              {this.state.canEdit ?
+              (
+                <Button className='eventsEdit__info__img' onClick={this.onClick.bind(this)}><img alt='Agregar Evento' src={addImg}/></Button>
+              )
+              : (<div></div>)}
               <div className='eventsEdit__info__events'>
                 {this.state.events.map( (items) => (
-                  <Event event={items} onSelect={this.onSelect.bind(this)} onEdit={this.onEditEvent.bind(this)} admin={true}></Event>
+                  <Event event={items} onSelect={this.onSelect.bind(this)} onEdit={this.onEditEvent.bind(this)} admin={this.state.canEdit} onGetEvents={this.onGetEvents.bind(this)}></Event>
                 ))}
               </div>
             </div>

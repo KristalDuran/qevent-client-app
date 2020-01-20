@@ -62,7 +62,7 @@ class Login extends React.Component {
       ) :  
       (
         <div className="login">
-          <img className="login__backgound" src={loginBackground}/>
+          <img className="login__backgound" alt='' src={loginBackground}/>
           <Header isLogin={true} ></Header>
           <div className="login__info">
             <p className="login__info__titule">Login</p>

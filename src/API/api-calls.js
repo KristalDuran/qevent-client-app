@@ -13,7 +13,10 @@ import {
   USER,
   USERS,
   GUEST,
-  LOGIN
+  LOGIN,
+  DELETE_EVENT,
+  EDIT_EVENT,
+  FILTER_EVENT
 } from '../utils/url.constants';
 
   export const addEvent = (event, successCallback, errorCallback) => {
@@ -146,6 +149,18 @@ import {
     })
   }
 
+  export const editEvent = (event, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${EDIT_EVENT}?id=${event.ID_evento}&name=${event.NombreEvento}&description=${event.DescEvento}&address=${event.Ubicacion}
+      &type=${event.Tipo}&date=${event.Fecha}&time=${event.Hora}&restriction=${event.Restricciones}&URLimgEv=${event.FuenteEvento}`,
+      method: 'get',
+      data: {
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+
   export const deleteUser = (id, successCallback, errorCallback) => {
     apiRequest({
       url: `${DELETE_USER}?id=${id}`,
@@ -173,6 +188,28 @@ import {
   export const login = (nameuser, password, successCallback, errorCallback) => {
     apiRequest({
       url: `${LOGIN}?nameuser=${nameuser}&password=${password}`,
+      method: 'get',
+      data: {
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+
+  export const deleteEvent = (id, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${DELETE_EVENT}?idEvento=${id}`,
+      method: 'get',
+      data: {
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+
+  export const getEventFilter = (filtrer, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${FILTER_EVENT}?filter=${filtrer}`,
       method: 'get',
       data: {
       },

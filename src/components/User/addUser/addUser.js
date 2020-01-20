@@ -20,7 +20,8 @@ class AddUser extends React.Component {
       user: this.props.user || {},
       adminRol:false,
       clientRol:false,
-      asistentRol:false
+      asistentRol:false,
+      userLogged: this.props.userLogged
     }
   }
 
@@ -34,22 +35,26 @@ class AddUser extends React.Component {
     if (this.state.user.Rol === 'Asistente') {
       this.setState({ asistentRol:true})
     }
+
+    if (this.props.location) {
+      this.setState({userLogged: this.props.location.state.userLogged})
+    }
   }
 
   onChangeName(e){
-    const user = { ... this.state.user, Nombre: e.currentTarget.value};
+    const user = { ...this.state.user, Nombre:e.currentTarget.value };
     this.setState({user});
     e.currentTarget.value = this.state.user;
   }
 
   onChangeUserName(e){
-    const user = { ... this.state.user, NombreUsuario: e.currentTarget.value};
+    const user = { ...this.state.user, NombreUsuario:e.currentTarget.value };
     this.setState({user});
     e.currentTarget.value = this.state.user;
   }
 
   onChangeEmail(e){
-    const user = { ... this.state.user, Correo: e.currentTarget.value};
+    const user = { ...this.state.user, Correo:e.currentTarget.value };
     this.setState({user});
     e.currentTarget.value = this.state.user;
   }
@@ -68,18 +73,18 @@ class AddUser extends React.Component {
       rol = 'Asistente'
       this.setState({ asistentRol:true})
     }
-    const user = { ... this.state.user, Rol: rol};
+    const user = { ...this.state.user, Rol: rol };
     this.setState({user});
     e.currentTarget.value = this.state.user;
   }
 
   onChangePassword(e){
-    const user = { ... this.state.user, Contrasena: e.currentTarget.value};
+    const user = { ...this.state.user, Contrasena:e.currentTarget.value };
     this.setState({user});
   }
 
   onChangeConfirmPassword(e){
-    const user = { ... this.state.user, confirmPassword: e.currentTarget.value};
+    const user = { ...this.state.user, confirmPassword:e.currentTarget.value };
     this.setState({user});
   }
 
@@ -122,6 +127,7 @@ class AddUser extends React.Component {
       response => {
         if (response.data) {
           this.setState({edit:false});
+          this.props.onBack();
         }
       },
       error => {
@@ -133,8 +139,8 @@ class AddUser extends React.Component {
   render() {
     return (
       <div className="user">
-        <Menu events={false} users={true}/>
-        <Header/>
+        <Menu events={false} users={true} user={this.state.userLogged}/>
+        <Header user={this.state.userLogged}/>
         <div className="user__info">
           {this.state.edit ? 
             (<p className='user__info__titule'>Editar Usuario</p>) :
@@ -159,10 +165,10 @@ class AddUser extends React.Component {
           <div className='user__info__buttons'>
             {this.state.edit ? 
               (<div className='user__info__buttons'>
-                <Button className='user__info__buttons__button' onClick={this.onChangeUser.bind(this)}>Guardar Cambios</Button>
-                <Button className='user__info__buttons__button' onClick={this.onDeleteUser.bind(this)}>Eliminar Usuario</Button>
+                <Button href='/getUsers' className='user__info__buttons__button' onClick={this.onChangeUser.bind(this)}>Guardar Cambios</Button>
+                <Button href='/getUsers' className='user__info__buttons__button' onClick={this.onDeleteUser.bind(this)}>Eliminar Usuario</Button>
               </div>) :
-              (<Button className='user__info__buttons__button' onClick={this.onSave.bind(this)}>Registrar</Button>)
+              (<Button href='/getUsers' className='user__info__buttons__button' onClick={this.onSave.bind(this)}>Registrar</Button>)
             }
             <Button href='/getUsers' className='user__info__buttons__button'>Cancelar</Button>
           </div>

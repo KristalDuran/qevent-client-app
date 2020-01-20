@@ -27,10 +27,13 @@ class EventSelected extends React.Component {
       like:false,
       guests:null,
       user:this.props.user,
+      text:`Te invito a participar de la actividad: ${this.props.event.NombreEvento}, por realizar este ${this.props.event.Fecha}, en ${this.props.event.Ubicacion}. Para más info visita el sitio web http://localhost:8100/home`
     }
   }
 
   componentDidMount(){
+    console.log('eventoooo')
+    console.log(this.props.event)
     this.onGetGuest();
   }
 
@@ -133,23 +136,23 @@ class EventSelected extends React.Component {
       <div className="eventSelected">
         <div className="eventSelected__info">
           <div className="eventSelected__info__data">
-            <Button className="eventSelected__info__data__back" href='/'><img src={back}></img></Button>
-            <p className="eventSelected__info__data__name">{this.state.event.Nombre}</p>
+            <Button className="eventSelected__info__data__back" href='/'><img alt='Atras' src={back}></img></Button>
+            <p className="eventSelected__info__data__name">{this.state.event.NombreEvento}</p>
             <p className="eventSelected__info__data__date">{this.state.event.Fecha}</p>
             <p className="eventSelected__info__data__time">{this.state.event.Hora}</p>
             <p className="eventSelected__info__data__address">{this.state.event.Ubicacion}</p>
             <p className="eventSelected__info__data__type">{this.state.event.Tipo}</p>
             {this.state.event.img ? (
-              <img className="eventSelected__info__data__img" src={this.state.event.FuenteEvento}></img>
+              <img className="eventSelected__info__data__img" alt='Evento' src={this.state.event.FuenteEvento}></img>
             ) : (
-              <img className="eventSelected__info__data__img" src={iconDefault}></img>
+              <img className="eventSelected__info__data__img" alt='Evento' src={iconDefault}></img>
             )}
             <div className="eventSelected__info__data__buttons">
-              <Button className="eventSelected__info__data__buttons__shares" onClick={this.onClickShares.bind(this)}><img src={shares}></img></Button>
+              <Button href={`whatsapp://send?text=${this.state.text}`} className="eventSelected__info__data__buttons__shares" onClick={this.onClickShares.bind(this)}><img alt='Compartir Evento' src={shares}></img></Button>
               <p className="eventSelected__info__data__buttons__number">{this.state.event.shares}</p>
               {this.state.like ?
-              (<Button className="eventSelected__info__data__buttons__like" onClick={this.onClickDislike.bind(this)}><img src={likeRed}></img></Button>) :
-              (<Button className="eventSelected__info__data__buttons__like" onClick={this.onClickLike.bind(this)}><img src={like}></img></Button>)
+              (<Button className="eventSelected__info__data__buttons__like" onClick={this.onClickDislike.bind(this)}><img alt='' src={likeRed}></img></Button>) :
+              (<Button className="eventSelected__info__data__buttons__like" onClick={this.onClickLike.bind(this)}><img alt='Me gusta' src={like}></img></Button>)
               }
               <p className="eventSelected__info__data__buttons__number">{this.state.event.likes}</p>
               <Button className="eventSelected__info__data__buttons__button" onClick={this.onClickEvaluate.bind(this)}>Evaluar</Button>
@@ -161,9 +164,9 @@ class EventSelected extends React.Component {
             <div className="eventSelected__info__guest">
               <p className="eventSelected__info__guest__title">Expositor</p>
               {this.state.event.img ? (
-                <img className="eventSelected__info__guest__img" src={guest.Fuente}></img>
+                <img className="eventSelected__info__guest__img" alt='Expositor' src={guest.Fuente}></img>
               ) : (
-                <img className="eventSelected__info__guest__img" src={iconPerson}></img>
+                <img className="eventSelected__info__guest__img" alt='Expositor' src={iconPerson}></img>
               )}
               <p className="eventSelected__info__guest__name">{guest.Nombre}</p>
               <p className="eventSelected__info__guest__address">{guest.NombreInvit}</p>

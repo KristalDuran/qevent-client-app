@@ -1,19 +1,19 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import About from './components/About';
 import Home from './components/Events';
-import Welcome from './components/WelcomePage';
-import List from './pages/List';
+// import Welcome from './components/WelcomePage';
+// import List from './pages/List';
 import Login from './components/Login/index';
 import Guest from './components/Guest/index';
-import PublicEvents from './components/PublicEvents/index';
-import AddUser from './components/User/addUser/index';
+// import PublicEvents from './components/PublicEvents/index';
+// import AddUser from './components/User/addUser/index';
 import GetUsers from './components/User/getUsers/index';
-import GetUser from './components/User/getUser/index';
+// import GetUser from './components/User/getUser/index';
 import EditEvent from './components/EditEvent';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -52,12 +52,12 @@ const App: React.FC = () => (
           <Route path="/addEvent/guest" component={Guest} exact={true}/>
           <Route path="/addEvent" component={PublicEvents}exact={true} /> */}
           {/* <Route path="/getUsers" component={GetUsers}exact={true} /> */}
-          <Route path="/" render={() => <Redirect to="/home"/> } exact={true} />
           <Route path="/about" component={About} exact={true} />
           <Route path="/events" component={EditEvent}exact={true} />
-          <Route path="/getUsers" component={GetUsers} />
+          <Route path="/getUsers" component={GetUsers} exact={true} />
           <Route path="/login" component={Login} exact={true} />
-          
+          <Route path="/addEvent/guest" component={Guest} exact={true}/>
+          <Route path="/" render={() => <Redirect to="/home"/> } exact={true} />
         </IonRouterOutlet>
       </IonSplitPane>
     </IonReactRouter>

@@ -7,6 +7,30 @@
   height: 100%;
   background:#D6DEE4;
   overflow: scroll;
+  &__link{
+    text-decoration: none;      
+    position: relative;
+    width: 280px;
+    height: 30px;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: rgba(204, 68, 84, 0.9);
+    border-radius: 10px;
+      
+  }
+  &__text{
+    position: relative;
+    left: 80px;
+    font-family: $robonto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 3px;
+    color: #2D3A50;
+  }
   &__info{
     position: relative;
     width: 648px;
@@ -74,6 +98,7 @@
     display: flex;
     flex-direction: column;
     margin: auto;
+    
     &__button{
       position: relative;
       width: 280px;

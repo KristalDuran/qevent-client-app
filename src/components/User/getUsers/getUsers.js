@@ -22,12 +22,16 @@ class GetUsers extends React.Component {
       users:[],
       edit:false,
       newUser:false,
-      user:this.props.location.state.user
+      user:this.props.location.state.user,
+      cantEdit:false
     }
   }
 
   componentDidMount() {
     this.onGetUsers();
+    if (this.state.user.Rol === 'Administrador') {
+      this.setState({cantEdit:true})
+    }
   }
 
   onGetUsers(){
@@ -70,20 +74,23 @@ class GetUsers extends React.Component {
   render() {
     return (
       this.state.edit || this.state.newUser ? (
-        <AddUser onBack={this.onBack.bind(this)} user={this.state.userInfo} newUser={this.state.newUser}></AddUser>
+        <AddUser onBack={this.onBack.bind(this)} userLogged={this.state.user} user={this.state.userInfo} newUser={this.state.newUser}></AddUser>
       ) : (
         <div className="users">
         <Menu events={false} users={true} user={this.state.user}/>
         <Header user={this.state.user}/>
         <div className="users__info">
           <p className='users__info__titule'>Usuarios actuales</p>
-          <Button className='users__info__img' onClick={this.onNewUser.bind(this)}><img src={addImg}/>
-          </Button>
+          {this.state.cantEdit ?
+            (<Button className='users__info__img' onClick={this.onNewUser.bind(this)}><img alt='Agregar usuario' src={addImg}/></Button>)
+            :(<div></div>)}
           {this.state.users.map( (items) => (
             <div className='users__info__data'>
               <p className='users__info__data__name'>{items.Nombre}</p>
               <p className='users__info__data__rol'>{items.Rol}</p>
-              <Button className='users__info__data__edit' onClick={this.onClick.bind(this, items)}>Editar</Button>
+              {this.state.cantEdit ?
+              (<Button className='users__info__data__edit' onClick={this.onClick.bind(this, items)}>Editar</Button>)
+              :(<div></div>)}
               <div className='users__info__data__line'></div>
             </div>
           ))}
