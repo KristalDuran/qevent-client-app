@@ -13,7 +13,7 @@ import Guest from './components/Guest/index';
 // import PublicEvents from './components/PublicEvents/index';
 // import AddUser from './components/User/addUser/index';
 import GetUsers from './components/User/getUsers/index';
-// import GetUser from './components/User/getUser/index';
+import Singin from './components/Sing-in/index';
 import EditEvent from './components/EditEvent';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,7 +44,7 @@ const App: React.FC = () => (
           <Route path="/home/list" component={List} exact={true} />
           
           
-          <Route path="/addUser" component={AddUser} exact={true} />
+          
           <Route path="/welcome" component={Welcome} exact={true} />
           <Route path="/getUser" component={GetUser} exact={true} />
           {/* <Route path="/events" component={GetUsers} exact={true} /> */}
@@ -52,6 +52,7 @@ const App: React.FC = () => (
           <Route path="/addEvent/guest" component={Guest} exact={true}/>
           <Route path="/addEvent" component={PublicEvents}exact={true} /> */}
           {/* <Route path="/getUsers" component={GetUsers}exact={true} /> */}
+          <Route path="/singin" component={Singin} exact={true} />
           <Route path="/about" component={About} exact={true} />
           <Route path="/events" component={EditEvent}exact={true} />
           <Route path="/getUsers" component={GetUsers} exact={true} />

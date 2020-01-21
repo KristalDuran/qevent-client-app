@@ -36,7 +36,7 @@ class Menu extends React.Component {
         <div className="menu__line"></div>
         {this.state.users ?
           (<div className="menu__selectedUser"></div>):
-          (<div></div>)}
+          (<div ></div>)}
         <Link className="menu__link" to={{
             pathname: "/getUsers",
             state: { user: this.state.user}

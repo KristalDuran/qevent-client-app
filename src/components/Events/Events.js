@@ -22,12 +22,12 @@ class Events extends React.Component {
       eventEdit: null,
       edit:false,
       event:null,
-      user: this.props.user
+      user: this.props.user,
+      isClient: false
     }
   }
 
   onSelect(data){
-    console.log(data);
     if (data !== null) {
       getEvent(
         data.ID_evento,
@@ -47,8 +47,19 @@ componentDidMount(){
   this.onGetEvents();
   if (this.props.location) {
     if (this.props.location.state) {
-      this.setState({user:this.props.location.state.user})
+      if (this.props.location.state.user) {
+        this.setState({user:this.props.location.state.user})
+      }
     } 
+  }else{
+    if (this.state.user) {
+      if (this.state.user.Rol === 'Cliente') {
+        this.setState({isClient:true})
+      }
+      if (this.state.user.Rol === 'Asistente') {
+        this.setState({asisten:true})
+      }
+    }
   }
 }
 
@@ -56,7 +67,6 @@ componentDidMount(){
     getEvents(
       response => {
         if (response.data) {
-          console.log('siiiiiiiiiiiiiiiiiií')
           this.setState({events:response.data.content});
         }
       },
@@ -67,19 +77,21 @@ componentDidMount(){
   }
 
   onChange(event){
-    getEventFilter(
-      event.target.value,
-      response => {
-        if (response.data) {
-          console.log(response.data)
-          
-          this.setState({events:response.data.content});
+    if (event.target.value === '') {
+      this.onGetEvents();
+    }else{
+      getEventFilter(
+        event.target.value,
+        response => {
+          if (response.data) {
+            this.setState({events:response.data.content});
+          }
+        },
+        error => {
+          //TODO
         }
-      },
-      error => {
-        //TODO
-      }
-    );
+      );
+    }
   }
 
   render() {
@@ -92,14 +104,16 @@ componentDidMount(){
           <img className="events__info__background" alt='Atras' src={background}/>
           <div className="events__info__search">
             <input className="events__info__search__input" placeholder='Lugar del evento' onChange={this.onChange.bind(this)}></input>
-            <input className="events__info__search__input" placeholder='Fecha del evento'></input>
-            <input className="events__info__search__input" placeholder='Nombre del evento'></input>
-            <input className="events__info__search__input" placeholder='Tipo de evento'></input>
+            <input className="events__info__search__input" placeholder='Fecha del evento' onChange={this.onChange.bind(this)}></input>
+            <input className="events__info__search__input" placeholder='Nombre del evento' onChange={this.onChange.bind(this)}></input>
+            <input className="events__info__search__input" placeholder='Tipo de evento' onChange={this.onChange.bind(this)}></input>
           </div>
           <p className="events__info__titule">Eventos</p>
           <div className="events__info__eventsList">
             {this.state.events.map((event) => (
-              <Event event={event} onSelect={this.onSelect.bind(this)} admin={false} user={this.state.user} onGetEvents={this.onGetEvents.bind(this)}></Event>
+              (this.state.isClient || !this.state.user) && event.EPublico ?
+              (<div></div>):
+              (<Event event={event} onSelect={this.onSelect.bind(this)} admin={false} asisten={false} user={this.state.user} onGetEvents={this.onGetEvents.bind(this)}></Event>)
             ))}
           </div>
         </div>

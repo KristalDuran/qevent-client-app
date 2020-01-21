@@ -89,15 +89,11 @@ class AddUser extends React.Component {
   }
 
   onSave(){
-    console.log('save')
     if (this.state.user.Contrasena === this.state.user.confirmPassword) {
-      console.log('igual')
       addUser(this.state.user,
         response => {
-          console.log(response)
           if (response.data) {
             this.setState({edit:false});
-            console.log('aqui')
             this.props.onBack();
           }
         },

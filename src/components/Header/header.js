@@ -41,7 +41,7 @@ class Header extends React.Component {
             <div>
               <input className='header__input' placeholder='Buscar evento'></input>
               <Button href="/login" className='header__login'>Iniciar Seción</Button>
-              <Button href="/addUser" className='header__signin'>Registrarse</Button>
+              <Button href="/singin" className='header__signin'>Registrarse</Button>
             </div>
           )
         )}

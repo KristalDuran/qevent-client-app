@@ -24,23 +24,27 @@ class EditEvent extends React.Component {
     this.state = {
       events: [],
       event:null,
-      user: this.props.location.state.user
+      user: this.props.location.state.user,
+      asisten:false,
     }
   }
-  // name:'Evento Uno', place:'Zarcero, Alajuela', date:'29 Octubre, 2020', likes: '30', share:'3',time:'3:00 p.m', 
-  // description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat mas', 
-  // type:'Conferencia', restriccions: 'Restricciones: <br/> * Mayor de edad <br/> * Idioma españo', guest:{name:'Chris Duran', 
-  // img:'', address: 'Costa Rica', email:'chris@gmail.com', phone:'+506 786565',
-  // description:'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat mas',}},
-  
+
+  componentDidMount(){
+    this.onGetEvents();
+    if (this.state.user.Rol === 'Administrador') {
+      this.setState({canEdit:true});
+    }
+    if (this.state.user.Rol === 'Asistente') {
+      this.setState({asisten:true})
+    }
+  }
+
   onSelect(data){
-    console.log(data);
     if (data !== null) {
       getEvent(
         data.ID_evento,
         response => {
           if (response.data) {
-            console.log(response.data.content)
             this.setState({event:response.data.content[0]});
           }
         },
@@ -48,18 +52,8 @@ class EditEvent extends React.Component {
           //TODO
         }
       );
-      console.log('\n\n\n\n\n\nlog')
-      console.log(data)
-      // this.setState({event:data});
     }
   }
-
-componentDidMount(){
-  this.onGetEvents();
-  if (this.state.user.Rol === 'Administrador') {
-    this.setState({canEdit:true});
-  }
-}
 
   onGetEvents(){
     getEvents(
@@ -76,7 +70,6 @@ componentDidMount(){
 
   
   onEditEvent(data){
-    console.log(data)
     this.setState({edit:true, eventEdit: data})
   }
 
@@ -87,7 +80,7 @@ componentDidMount(){
   render() {
     return (
       this.state.event ? (
-        <EventSelected event={this.state.event}></EventSelected>
+        <EventSelected event={this.state.event} user={this.state.user}></EventSelected>
       ) : (
         this.state.edit ? (
           <PublicEvents event={this.state.eventEdit} user={this.state.user}></PublicEvents>
@@ -104,7 +97,7 @@ componentDidMount(){
               : (<div></div>)}
               <div className='eventsEdit__info__events'>
                 {this.state.events.map( (items) => (
-                  <Event event={items} onSelect={this.onSelect.bind(this)} onEdit={this.onEditEvent.bind(this)} admin={this.state.canEdit} onGetEvents={this.onGetEvents.bind(this)}></Event>
+                  <Event event={items} onSelect={this.onSelect.bind(this)} onEdit={this.onEditEvent.bind(this)} admin={this.state.canEdit} asisten={this.state.asisten} onGetEvents={this.onGetEvents.bind(this)}></Event>
                 ))}
               </div>
             </div>

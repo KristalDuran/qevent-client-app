@@ -19,21 +19,19 @@ class Event extends React.Component {
         admin: this.props.admin,
         edit:false,
         user:this.props.user,
+        asisten: this.props.asisten,
     }
   }
 
   onSelect(){
-    console.log('click');
     this.props.onSelect(this.state.event)
   }
 
   onSelectEdit(){
-    console.log(this.props.event.ID_evento)
     getEvent(
       this.props.event.ID_evento,
       response => {
         if (response.data) {
-          console.log(response.data.content)
           this.props.onEdit(response.data.content[0]);
         }
       },
@@ -50,7 +48,6 @@ class Event extends React.Component {
       this.props.event.ID_evento,
       response => {
         if (response) {
-          console.log(response)
           this.props.onGetEvents();
         }
       },
@@ -77,19 +74,17 @@ class Event extends React.Component {
                 <img className="event__info__img" alt='' src={eventDefault}></img>
               )}
               <p className="event__info__name">{this.props.event.Nombre}</p>
-              <p className="event__info__type">{this.props.event.Tipo}</p>
-              <p className="event__info__place">{this.props.event.Ubicacion}</p>
-              <p className="event__info__date">{this.props.event.Fecha}</p>
-              
-              {this.state.admin ? (
+              <p className="event__info__type">Tipo: {this.props.event.Tipo}</p>
+              <p className="event__info__place">Lugar: {this.props.event.Ubicacion}</p>
+              <p className="event__info__date">Fecha: {this.props.event.Fecha}</p>
+              {this.state.admin || this.state.asisten ? (
                 <div className="event__info__options">
-                  <Button className="event__info__options__img" onClick={this.onSelect.bind(this)}><img alt='Agregar usuario' src={more}></img></Button>
-                  <Button className="event__info__options__img" onClick={this.onSelectEdit.bind(this)}><img alt='Editar usuario' src={edit}></img></Button>
-                  <Button className="event__info__options__img" onClick={this.onSelectDelete.bind(this)}><img alt='Eliminar usuario' src={deleteImg}></img></Button>
+                  <Button className="event__info__options__img" onClick={this.onSelect.bind(this)}><img alt='Ver evento' src={more}></img></Button>
+                  <Button className="event__info__options__img" onClick={this.onSelectEdit.bind(this)}><img alt='Editar evento' src={edit}></img></Button>
+                  <Button className="event__info__options__img" onClick={this.onSelectDelete.bind(this)}><img alt='Eliminar evento' src={deleteImg}></img></Button>
                 </div>
               ) :
               (<Button className="event__info__button" onClick={this.onSelect.bind(this)}>Detalles</Button>)}
-              
             </div>
           ): (
             <p className='event__message'>Aun no hay eventos publicados</p>

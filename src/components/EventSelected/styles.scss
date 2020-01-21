@@ -16,6 +16,52 @@
     font-family: $robonto;
     font-style: normal;
     font-weight: normal;
+    &__inscriptions{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 75px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #D6DEE4;
+      width: 100%;
+      text-align: center;
+      
+      &__title{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 30px;
+        line-height: 35px;
+      }
+      &__person{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        margin-left: 40%;
+        &__name{
+          position: relative;
+          margin-right: 55px;
+          margin-left: 20px;
+          font-size: 20px;
+        }
+        &__email{
+          position: relative;
+          margin-left: 125px;
+          margin-right: 55px;
+          top: 6px;
+        }
+        &__line{
+          position: relative;
+          width: 34%;
+          height: 0px;
+          margin-left: 35%;
+          margin-bottom: 25px;
+          border: 1px solid #CC4454;
+          transform: rotate(179.9deg);
+        }
+      }
+    }
     &__data{
       position: relative;
       margin-right: 50px;
@@ -93,7 +139,7 @@
           position: relative;
           top: -30px;
           background: #D6DEE4;
-          width: 100px;
+          width: 180px;
           height: 36px;
           background: rgba(204, 68, 84, 0.9);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -189,6 +235,31 @@
         font-size: 30px;
         line-height: 35px;
         margin-left: 200px;
+      }
+      &__average{
+        position: relative;
+        margin-left: 350px;
+        font-size: 25px;
+        line-height: 21px;
+      }
+      &__comments{
+        overflow: scroll;
+        height: 300px;
+        margin-bottom: 100px;
+        &__comment{
+          position: relative;
+          margin-left: 490px;
+          font-size: 20px;
+          line-height: 21px;
+        }
+        &__line{
+          position: relative;
+          width: 40%;
+          height: 0px;
+          margin-left: 440px;
+          border: 1px solid #CC4454;
+          transform: rotate(179.9deg);
+        }
       }
       &__input{
         position: relative;

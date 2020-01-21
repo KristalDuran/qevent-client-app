@@ -16,7 +16,12 @@ import {
   LOGIN,
   DELETE_EVENT,
   EDIT_EVENT,
-  FILTER_EVENT
+  FILTER_EVENT,
+  INSCRIPTION,
+  PUBLIC_EVENT,
+  IS_SUSCRIPTED, 
+  COMMENTS,
+  INSCRITOS
 } from '../utils/url.constants';
 
   export const addEvent = (event, successCallback, errorCallback) => {
@@ -67,7 +72,7 @@ import {
 
   export const getEvent = (id, successCallback, errorCallback) => {
     apiRequest({
-      url: `${EVENT}?id=${id}`,
+      url: `${EVENT}?idevento=${id}`,
       method: 'get',
       data: {
         id
@@ -217,3 +222,60 @@ import {
       onError: error => { errorCallback(error) }
     })
   }
+
+  export const addInscription = (inscription, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${INSCRIPTION}?idUsuario=${inscription.idUsuario}&idEvent=${inscription.idEvent}`,
+      method: 'get',
+      data: {
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+  
+
+  export const publicEvent = (idEvent, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${PUBLIC_EVENT}?id=${idEvent}`,
+      method: 'get',
+      data: {
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+
+  export const idInscript = (idUser, idEvent, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${IS_SUSCRIPTED}?idUser=${idUser}&idEvent=${idEvent}`,
+      method: 'get',
+      data: {
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+
+  export const getCommentsEvent = (idEvent, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${COMMENTS}?idevento=${idEvent}`,
+      method: 'get',
+      data: {
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+  
+  export const getInscritosEvent = (idEvent, successCallback, errorCallback) => {
+    apiRequest({
+      url: `${INSCRITOS}?idevento=${idEvent}`,
+      method: 'get',
+      data: {
+      },
+      onSuccess: response => { successCallback(response) },
+      onError: error => { errorCallback(error) }
+    })
+  }
+  

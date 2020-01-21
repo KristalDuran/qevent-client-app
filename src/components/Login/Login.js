@@ -32,7 +32,6 @@ class Login extends React.Component {
       response => {
         if (response) {
           this.setState({user:response.data.content[0]});
-          console.log(this.state.user)
           if (this.state.user.Rol === 'Cliente') {
             this.setState({client:true});
           }
@@ -69,7 +68,7 @@ class Login extends React.Component {
             <input className="login__info__inputName" placeholder='Usuario' onChange={this.onChangeUser.bind(this)}></input>
             <input className="login__info__inputPassword" placeholder='Contraseña' onChange={this.onChangePassword.bind(this)}></input>
             <Button className="login__info__button" onClick={this.onLogin.bind(this)}>Ingresar</Button>
-            <Button href='/welcome' className="login__info__button">Registrarme</Button>
+            <Button href='/singin' className="login__info__button">Registrarme</Button>
           </div>
           <Footer></Footer>
         </div>
