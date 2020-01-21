@@ -59,7 +59,7 @@
   }
   &__login{
     position: absolute;
-    right: 145px;
+    right: 10px;
     top: 30px;
 
     font-family: $robonto;
@@ -67,14 +67,23 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 21px;
-    /* identical to box height */
-
 
     color: #5DAAC1;
   }
+  &__menu{
+    position: absolute;
+    right: 10px;
+    top: 18px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+  }
   &__signin{
     position: absolute;
-    right: 50px;
+    right: 100px;
     top: 33px;
 
     font-family: $robonto;
@@ -82,7 +91,6 @@
     font-weight: normal;
     font-size: 15px;
     line-height: 18px;
-    /* identical to box height */
 
 
     color: #5DAAC1;

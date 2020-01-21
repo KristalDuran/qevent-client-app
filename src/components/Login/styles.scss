@@ -1,26 +1,26 @@
 @import './../../assets/styles/constants.scss';
 @import './../../assets/styles/fonts.scss';
 .login {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  //position: absolute;
+  width: 100%; //esto no
+  height: 100%; //esto no
   overflow: scroll;
   &__backgound{
     position: absolute;
     width: 100%;
     height: 100%;
-    left: 0px;
+    //left: 0px;
   }
   &__info{
     position: relative;
-    width: 511px;
-    height: 562px;
+    width: 300px; //CAMBIÉ
+    height: 400px; //CAMBIÉ
     margin: auto;
     display: flex;
     flex-direction: column;
     background: rgba(129, 184, 205, 0.6);
     border-radius: 20px;
-    top: 170px;
+    top: 120px;
     &__titule{
       position: relative;
       width: 99px;
@@ -31,15 +31,15 @@
       font-family: $robonto;
       font-style: normal;
       font-weight: normal;
-      font-size: 40px;
+      font-size: 30px;
       line-height: 47px;
   
       color: #2D3A50;
     }
     &__inputName{
       position: relative;
-      width: 313px;
-      height: 46px;
+      width: 250px;
+      height: 30px;
       margin-left: auto;
       margin-right: auto;
       top: 15px;
@@ -57,8 +57,8 @@
     &__inputPassword{
       padding-left: 15px;
       position: relative;
-      width: 313px;
-      height: 46px;
+      width: 250px;
+      height: 30px;
       margin-left: auto;
       margin-right: auto;
       top: 55px;
@@ -79,7 +79,7 @@
       height: 46px;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 30px;
+      margin-top: 10px; //CAMBIE
       top: 100px;
       background: rgba(204, 68, 84, 0.9);
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -87,7 +87,7 @@
       font-family: $robonto;
       font-style: normal;
       font-weight: normal;
-      font-size: 25px;
+      font-size: 20px;
       line-height: 29px;
       text-align: center;
       text-decoration: none;

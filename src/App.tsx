@@ -57,7 +57,7 @@ const App: React.FC = () => (
           <Route path="/getUsers" component={GetUsers} exact={true} />
           <Route path="/login" component={Login} exact={true} />
           <Route path="/addEvent/guest" component={Guest} exact={true}/>
-          <Route path="/" render={() => <Redirect to="/home"/> } exact={true} />
+          <Route path="/" render={() => <Redirect to="/login"/> } exact={true} />
         </IonRouterOutlet>
       </IonSplitPane>
     </IonReactRouter>

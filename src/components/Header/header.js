@@ -9,7 +9,10 @@ import './styles.scss';
 
 import logo from './../../assets/img/logo.png';
 import name from './../../assets/img/name.png';
+import menu from './../../assets/img/menu.png';
 import { Button } from 'semantic-ui-react';
+import Menu from './../Menu/index';
+
 // import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
@@ -18,7 +21,12 @@ class Header extends React.Component {
     this.state = {
       isLogin:props.isLogin,
       user:this.props.user,
+      menu:false,
     }
+  }
+
+  onClick(){
+    this.setState({menu:!this.state.menu});
   }
 
   render() {
@@ -26,25 +34,25 @@ class Header extends React.Component {
       <div className="header">
         <Button href='/' className="header__logo"><img alt='Qevent' src={logo}></img></Button>
         <Button href='/' className="header__name"><img alt='Qevent' src={name}></img></Button>
-        {this.state.isLogin ? (
-          <Button href="/" className='header__login'>Olvide contraseña</Button>
-        ):(
-          this.state.user ? 
+        {this.state.user ? 
           (
             <div>
-              <input className='header__input' placeholder='Buscar evento'></input>
-              <p className='header__user'>{this.state.user.Nombre}</p>
-              <p className='header__role'>{this.state.user.Rol}</p>
+              {this.state.menu ? 
+              (
+                <Menu></Menu>
+              ) :  
+              (
+                <div></div>
+              )}
+              <Button onClick={this.onClick.bind(this)} className="header__menu"><img alt='Qevent' src={menu}></img></Button>
             </div>
           ) :
           (
             <div>
-              <input className='header__input' placeholder='Buscar evento'></input>
               <Button href="/login" className='header__login'>Iniciar Seción</Button>
-              <Button href="/addUser" className='header__signin'>Registrarse</Button>
             </div>
           )
-        )}
+        }
         <div className='header__line'></div>
       </div>
     )

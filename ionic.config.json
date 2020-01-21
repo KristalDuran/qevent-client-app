@@ -1,5 +1,7 @@
 {
   "name": "qevent-client-app",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }
