@@ -27,6 +27,11 @@ class Menu extends React.Component {
     this.setState({menu:!this.state.events});
   }
 
+
+componentDidMount(){
+  console.log(this.state.user)
+}
+
   render() {
     return (
       <div className="menu">

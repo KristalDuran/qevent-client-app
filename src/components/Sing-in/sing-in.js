@@ -15,7 +15,7 @@ class Singin extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: {}
+      user: this.props.location.state.user
     }
   }
 
@@ -73,7 +73,7 @@ class Singin extends React.Component {
   render() {
     return (
       <div className="user">
-        <Header/>
+        <Header user={this.state.user}/>
         <div className="user__info">
           <p className='user__info__titule'>Registrar de Usuario</p>
           <input className="user__info__input" placeholder='Nombre Completo' value={this.state.user.Nombre || ''} onChange={this.onChangeName.bind(this)}></input>
