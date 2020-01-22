@@ -12,9 +12,9 @@ import Login from './components/Login/index';
 import Guest from './components/Guest/index';
 // import PublicEvents from './components/PublicEvents/index';
 // import AddUser from './components/User/addUser/index';
-import GetUsers from './components/User/getUsers/index';
+import GetQR from './components/Sing-in/index';
 import Singin from './components/Sing-in/index';
-import EditEvent from './components/EditEvent';
+import Events from './components/Events';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -54,8 +54,8 @@ const App: React.FC = () => (
           {/* <Route path="/getUsers" component={GetUsers}exact={true} /> */}
           <Route path="/singin" component={Singin} exact={true} />
           <Route path="/about" component={About} exact={true} />
-          <Route path="/events" component={EditEvent}exact={true} />
-          <Route path="/getUsers" component={GetUsers} exact={true} />
+          <Route path="/getEvents" component={Events}exact={true} />
+          <Route path="/getQR" component={GetQR} exact={true} />
           <Route path="/login" component={Login} exact={true} />
           <Route path="/addEvent/guest" component={Guest} exact={true}/>
           <Route path="/" render={() => <Redirect to="/login"/> } exact={true} />

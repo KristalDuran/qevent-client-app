@@ -10,7 +10,7 @@ import { Button } from 'semantic-ui-react';
 
 import Header from '../Header/index';
 import Footer from '../Footer/index';
-import loginBackground from './../../assets/img/loginBackground.png';
+import loginBackground from './../../assets/img/loginBackgroundMobile.png';
 import { login } from '../../API/api-calls';
 import Welcome from '../WelcomePage';
 import Events from '../Events';
