@@ -2,84 +2,60 @@
 @import '../../assets/styles/fonts.scss';
 
 .menu {
-    font-size: 50px;
-    position: absolute;
-    top: 0px;
-    left: 0;
-    width: 190px;
+    position: relative;
+    top: -10px;
+    right: 0;
+    width: 200px;
     text-align: center;
     align-content: center;
-    background: rgba(129, 184, 205, 0.5);
-    height: 100%;
-    
-    font-family: $robonto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-    color: #2E3C54;
-    &__profile{
-      position: relative;
-      top: 160px;
-      &__img{
-        position: relative;
-      }
-    }
+    height: 425px;
+    margin-left: auto;
+    background: rgb(81, 158, 185);
+    font-size: 15px;
     &__link{
       height: 63px;
       width: 100%;
     }
-    &__line{
+    &__salir{
+      margin-top: 40px;
       position: relative;
-      top: 160px;
-      bottom: 20px;
-      border: 1px solid #2E3C54;
+      top: 40px;
       margin-bottom: 40px;
-    }
-    &__button{
-      position: relative;
-      top: 140px;
       background: rgba(129, 184, 205, 0.0);
-      // margin-top: 20px;
-      // margin-bottom: 20px;
       font-family: $robonto;
       font-style: normal;
       font-weight: normal;
       font-size: 18px;
       line-height: 21px;
       color: #2E3C54;
-      // height: 64px;
       text-decoration: none;
+      &:hover{
+        color: #CC4454;
+        font-size: 20px;
+      }
     }
-    &__about{
-      position: absolute;
-      bottom: 150px;
-      right: 40%;
+    &__line{
+      position: relative;
+    /* top: 40px; */
+    /* bottom: 20px; */
+    border: 1px solid #2E3C54;
+    }
+    &__button{
+      margin-top: 40px;
+      position: relative;
+      // top: 40px;
+      margin-bottom: 40px;
       background: rgba(129, 184, 205, 0.0);
-      color: #5DAAC1;
-      font-family: Roboto;
+      font-family: $robonto;
       font-style: normal;
-      font-weight: bold;
-      font-size: 20px;
-      line-height: 23px;
-      text-decoration-line: underline;
-    }
-    &__selectedUser{
-        top:312px;
-        position: absolute;
-        height: 63px;
-        width: 100%;
-        background: rgba(129, 184, 205, 0.9);
-    }
-    &__selectedEvent{
-        top:379px;
-        position: absolute;
-        height: 63px;
-        width: 100%;
-        background: rgba(129, 184, 205, 0.9);
-    }
-    &__notSelected{
-        height: 64px;
-        width: 100%;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 21px;
+      color: #2E3C54;
+      text-decoration: none;
+      &:hover{
+        color: #CC4454;
+        font-size: 20px;
+      }
     }
 }

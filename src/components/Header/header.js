@@ -7,8 +7,8 @@
 import React from 'react';
 import './styles.scss';
 
-import logo from './../../assets/img/logo.png';
-import name from './../../assets/img/name.png';
+import logo from './../../assets/img/logoMobile.png';
+import name from './../../assets/img/nameMobile.png';
 import menu from './../../assets/img/menu.png';
 import { Button } from 'semantic-ui-react';
 import Menu from './../Menu/index';

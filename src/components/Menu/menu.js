@@ -30,10 +30,8 @@ class Menu extends React.Component {
   render() {
     return (
       <div className="menu">
-        
-        
         <Link className="menu__link" to={{
-            pathname: "/home",
+            pathname: "/getEvents",
             state: { user: this.state.events}
           }}>
            <Button className="menu__button" onClick={this.onClick.bind(this)}>Ver Eventos</Button>
@@ -41,7 +39,7 @@ class Menu extends React.Component {
         <div className="menu__line"></div>
 
         <Link className="menu__link" to={{
-            pathname: "/getUsers",
+            pathname: "/getEvents",
             state: { user: this.state.user}
           }}>
            <Button className="menu__button" onClick={this.onClick.bind(this)}>Ver mis eventos</Button>
@@ -49,13 +47,13 @@ class Menu extends React.Component {
         <div className="menu__line"></div>
         
         <Link className="menu__link" to={{
-            pathname: "/getUsers",
+            pathname: "/",
             state: { user: this.state.user}
           }}>
            <Button className="menu__button" onClick={this.onClick.bind(this)}>Generar código QR</Button>
         </Link>
         <div className="menu__line"></div>
-        
+           <Button href='/' className="menu__salir">Cerrar sesión</Button>
       </div>
     )
   }

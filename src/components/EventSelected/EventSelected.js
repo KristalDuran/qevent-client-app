@@ -258,17 +258,17 @@ class EventSelected extends React.Component {
       <div className="eventSelected">
         <div className="eventSelected__info">
           <div className="eventSelected__info__data">
-            <Button className="eventSelected__info__data__back" href='/'><img alt='Atras' src={back}></img></Button>
             <p className="eventSelected__info__data__name">{this.state.event.NombreEvento}</p>
-            <p className="eventSelected__info__data__date">Fecha: {this.state.event.Fecha}</p>
-            <p className="eventSelected__info__data__time">Hora: {this.state.event.Hora}</p>
-            <p className="eventSelected__info__data__address">Lugar: {this.state.event.Ubicacion}</p>
-            <p className="eventSelected__info__data__type">Tipo: {this.state.event.Tipo}</p>
             {this.state.event.img ? (
               <img className="eventSelected__info__data__img" alt='Evento' src={this.state.event.FuenteEvento}></img>
             ) : (
               <img className="eventSelected__info__data__img" alt='Evento' src={iconDefault}></img>
             )}
+            <p className="eventSelected__info__data__date">Fecha: {this.state.event.Fecha}</p>
+            <p className="eventSelected__info__data__time">Hora: {this.state.event.Hora}</p>
+            <p className="eventSelected__info__data__address">Lugar: {this.state.event.Ubicacion}</p>
+            <p className="eventSelected__info__data__type">Tipo: {this.state.event.Tipo}</p>
+            
             <div className="eventSelected__info__data__buttons">
               <Button href={`whatsapp://send?text=${this.state.text}`} className="eventSelected__info__data__buttons__shares" onClick={this.onClickShares.bind(this)}><img alt='Compartir Evento' src={shares}></img></Button>
               <p className="eventSelected__info__data__buttons__number">{this.state.event.shares}</p>

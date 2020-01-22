@@ -26,12 +26,11 @@
       background: #D6DEE4;
       width: 100%;
       text-align: center;
-      
       &__title{
         position: relative;
         margin-left: auto;
         margin-right: auto;
-        font-size: 30px;
+        font-size: 20px;
         line-height: 35px;
       }
       &__person{
@@ -68,62 +67,60 @@
       background: #D6DEE4;
       width: 100%;
       height: 500px;
-      &__back{
-        position: relative;
-        margin-left: 30px;
-      }
       &__name{
-        margin-left: 200px;
-        font-size: 35px;
-        line-height: 41px;
+        margin-left: 100px;
+        font-size: 25px;
+        line-height: 29px;
       }
       &__date{
-        font-size: 20px;
+        font-size: 18px;
         line-height: 23px;
-        margin-left: 250px;
+        margin-left: 50px;
       }
       &__time{
-        font-size: 17px;
+        font-size: 16px;
         line-height: 23px;
-        margin-left: 330px;
+        margin-left: 60px;
         margin-top: -15px;
       }
       &__address{
-        margin-top: 65px;
-        font-size: 20px;
+        margin-top: 30px;
+        font-size: 16px;
         line-height: 23px;
-        margin-left: 250px;
+        margin-left: 50px;
       }
       &__type{
-        margin-top: 65px;
-        font-size: 20px;
+        margin-top: 30px;
+        font-size: 16px;
         line-height: 23px;
-        margin-left: 250px;
+        margin-left: 50px;
       }
       &__img{
         position: relative;
-        width: 590px;
-        height: 369px;
-        margin-top: -430px;
-        right: -45%;
+        // width: 590px;
+        // height: 369px;
+        margin-top: 0px;
+        width: 268px;
+        height: 173px;
+        left: 53px;
       }
       &__buttons{
         position: relative;
         display: flex;
         flex-direction: row;
         width: 600px;
-        left: 50%;
+        // left: 50%;
         &__number{
           position: relative;
           size: 12px;
-          top: -28px;
+          top: -5px;
         }
         &__shares{
           position: relative;
           width: 45px;
           height: 39px;
           margin-left: 20px;
-          top: -23px;
+          // top: -23px;
           background: #D6DEE4;
         }
         &__like{
@@ -132,7 +129,7 @@
           height: 38px;
           margin-left: 50px;
           // left: 38%;
-          top: -23px;
+          // top: -23px;
           background: #D6DEE4;
         }
         &__button{
