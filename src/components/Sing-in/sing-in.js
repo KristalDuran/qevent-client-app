@@ -27,13 +27,17 @@ class Singin extends React.Component {
     return (
       <div className="user">
         <Header user={this.state.user}/>
-        <div className="user__info">
+        <div className="user__QR">
           
         </div>
         <Footer/>
       </div>
     )
   }
+
+
+
+  
 }
 
 export default Singin;
