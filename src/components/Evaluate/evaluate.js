@@ -22,7 +22,7 @@ class Evaluate extends React.Component {
 
   evaluate(){
     evaluateEvent(
-      {id:this.state.ID_evento, number:this.state.number, comment:this.state.comment},
+      {id:this.state.event.ID_evento, number:this.state.number, comment:this.state.comment},
       response => {
         if (response) {
           this.props.onClickEvaluate();

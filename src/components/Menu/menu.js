@@ -30,8 +30,21 @@ class Menu extends React.Component {
   render() {
     return (
       <div className="menu">
+<<<<<<< HEAD
         
         
+=======
+        <div className="menu__profile">
+        {/* eslint-disable-next-line jsx-a11y/alt-text*/}
+          <img className="menu__profile__img" src={profile_img}/>
+          <p className="menu__profile__name">{this.state.user.Nombre}</p>
+          <p className="menu__profile__rol">{this.state.user.Rol}</p>
+        </div>
+        <div className="menu__line"></div>
+        {this.state.users ?
+          (<div className="menu__selectedUser"></div>):
+          (<div ></div>)}
+>>>>>>> 1b81bfd92c7f3bd260e91b75d3985a08b805f19e
         <Link className="menu__link" to={{
             pathname: "/home",
             state: { user: this.state.events}

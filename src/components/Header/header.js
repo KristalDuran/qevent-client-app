@@ -50,6 +50,10 @@ class Header extends React.Component {
           (
             <div>
               <Button href="/login" className='header__login'>Iniciar Seción</Button>
+<<<<<<< HEAD
+=======
+              <Button href="/singin" className='header__signin'>Registrarse</Button>
+>>>>>>> 1b81bfd92c7f3bd260e91b75d3985a08b805f19e
             </div>
           )
         }

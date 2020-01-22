@@ -25,7 +25,6 @@ class PublicEvents extends React.Component {
   }
 
   componentDidMount(){
-    console.log(this.props.event)
   }
 
   onChangeName(e){

@@ -38,7 +38,6 @@ class GetUsers extends React.Component {
     getUsers(
       response => {
         if (response.data) {
-          console.log(response.data.content);
           this.setState({users:response.data.content});
         }
       },
@@ -49,7 +48,6 @@ class GetUsers extends React.Component {
   }
 
   onClick(userInfo){
-    console.log(userInfo.ID_usuario)
     getUser(userInfo.ID_usuario,
       response => {
         if (response.data.content) {
