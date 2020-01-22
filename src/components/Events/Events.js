@@ -101,13 +101,7 @@ componentDidMount(){
       ) : (
       <div className="events">
         <div className="events__info">
-          <img className="events__info__background" alt='Atras' src={background}/>
-          <div className="events__info__search">
-            <input className="events__info__search__input" placeholder='Lugar del evento' onChange={this.onChange.bind(this)}></input>
-            <input className="events__info__search__input" placeholder='Fecha del evento' onChange={this.onChange.bind(this)}></input>
-            <input className="events__info__search__input" placeholder='Nombre del evento' onChange={this.onChange.bind(this)}></input>
-            <input className="events__info__search__input" placeholder='Tipo de evento' onChange={this.onChange.bind(this)}></input>
-          </div>
+          
           <p className="events__info__titule">Eventos</p>
           <div className="events__info__eventsList">
             {this.state.events.map((event) => (

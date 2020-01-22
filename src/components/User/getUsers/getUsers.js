@@ -29,9 +29,7 @@ class GetUsers extends React.Component {
 
   componentDidMount() {
     this.onGetUsers();
-    if (this.state.user.Rol === 'Administrador') {
-      this.setState({cantEdit:true})
-    }
+    
   }
 
   onGetUsers(){

@@ -49,7 +49,6 @@ class Header extends React.Component {
           ) :
           (
             <div>
-              <Button href="/login" className='header__login'>Iniciar Seción</Button>
             </div>
           )
         }

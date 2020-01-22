@@ -35,6 +35,8 @@ componentDidMount(){
   render() {
     return (
       <div className="menu">
+        
+        
         <Link className="menu__link" to={{
             pathname: "/getEvents",
             state: { user: this.state.events}
@@ -52,7 +54,7 @@ componentDidMount(){
         <div className="menu__line"></div>
         
         <Link className="menu__link" to={{
-            pathname: "/",
+            pathname: "/getQR",
             state: { user: this.state.user}
           }}>
            <Button className="menu__button" onClick={this.onClick.bind(this)}>Generar código QR</Button>
