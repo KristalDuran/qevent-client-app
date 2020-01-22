@@ -27,16 +27,13 @@ class Menu extends React.Component {
     this.setState({menu:!this.state.events});
   }
 
-
-componentDidMount(){
-  console.log(this.state.user)
-}
+  componentDidMount(){
+    console.log(this.state.user)
+  }
 
   render() {
     return (
       <div className="menu">
-        
-        
         <Link className="menu__link" to={{
             pathname: "/getEvents",
             state: { user: this.state.events}
@@ -55,7 +52,7 @@ componentDidMount(){
         
         <Link className="menu__link" to={{
             pathname: "/getQR",
-            state: { user: this.state.user}
+            state: {user: this.state.user}
           }}>
            <Button className="menu__button" onClick={this.onClick.bind(this)}>Generar código QR</Button>
         </Link>
